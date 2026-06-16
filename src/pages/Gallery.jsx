@@ -49,7 +49,7 @@ export default function Gallery() {
           
           {/* 2. Year Filter Tabs */}
           <div className="tabs-container">
-            {['All', '2025', '2024', '2023'].map((year) => (
+            {['All', '2026', '2025', '2024', '2023'].map((year) => (
               <button
                 key={year}
                 className={`tab-btn ${selectedYear === year ? 'active' : ''}`}
