@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import mathuraBanner from '../assets/MathuraSiteBanner.jpg';
+import glaLogo from '../assets/glaLogo.png';
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -13,9 +14,9 @@ export default function Home() {
       <section style={{ backgroundColor: 'var(--primary-dark)', padding: '2.5rem 0', borderBottom: '2px solid var(--accent)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="banner-wrapper" style={{ margin: 0, padding: '0.75rem', width: '100%', maxWidth: '850px' }}>
-            <img 
-              src={mathuraBanner} 
-              alt="ICPC Mathura Site Banner" 
+            <img
+              src={mathuraBanner}
+              alt="ICPC Mathura Site Banner"
               className="banner-img"
               style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }}
             />
@@ -27,13 +28,13 @@ export default function Home() {
       <section className="section" style={{ backgroundColor: 'var(--background)', padding: '3rem 0' }}>
         <div className="container">
           <div className="home-grid">
-            
+
             {/* Left Column: Vertical Sidebar Updates Widget */}
             <aside className="sidebar-updates">
               <div className="sidebar-header">
                 Important Updates
               </div>
-              
+
               <div className="sidebar-content">
                 {/* Update Card 1 */}
                 <div className="update-card">
@@ -50,10 +51,10 @@ export default function Home() {
                 <div className="update-card">
                   <div className="update-card-title">
                     <span className="badge-new">NEW!</span>
-                    Preliminary Online Contest Announcement
+                    Preliminary Online Contest
                   </div>
                   <div className="update-card-subtitle">
-                    Details to be released soon
+                    3rd Oct 2026
                   </div>
                 </div>
 
@@ -67,40 +68,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Red Dropdown Button: PAST ONSITE PROBLEM SETS */}
-                <div style={{ marginTop: '0.5rem' }}>
-                  <button 
-                    className="past-problems-btn"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    aria-expanded={isDropdownOpen}
-                  >
-                    <span>PAST ONSITE PROBLEM SETS</span>
-                    <span>{isDropdownOpen ? '▲' : '▼'}</span>
-                  </button>
-                  
-                  {isDropdownOpen && (
-                    <div className="past-problems-dropdown">
-                      <a href="#/problems-2024" onClick={(e) => e.preventDefault()} className="past-problem-link">
-                        <span>2024 Onsite Problem Set</span>
-                        <span style={{ fontSize: '0.9rem' }}>📥</span>
-                      </a>
-                      <a href="#/problems-2023" onClick={(e) => e.preventDefault()} className="past-problem-link">
-                        <span>2023 Onsite Problem Set</span>
-                        <span style={{ fontSize: '0.9rem' }}>📥</span>
-                      </a>
-                      <a href="#/problems-2022" onClick={(e) => e.preventDefault()} className="past-problem-link">
-                        <span>2022 Onsite Problem Set</span>
-                        <span style={{ fontSize: '0.9rem' }}>📥</span>
-                      </a>
-                    </div>
-                  )}
-                </div>
+
 
                 {/* Link Card: Visit ICPC Asia West Continent Page */}
-                <a 
-                  href="https://acm-icpc.asia/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://wc.indiaicpc.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="championship-card"
                   style={{ marginTop: '0.5rem', textDecoration: 'none' }}
                 >
@@ -114,17 +88,17 @@ export default function Home() {
 
             {/* Right Column: Main Content */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              
+
               {/* Welcome Card */}
               <div className="card-plain" style={{ borderTop: '4px solid var(--accent)', padding: '2.5rem' }}>
                 <h1 style={{ color: 'var(--primary-navy)', fontSize: '2.2rem', marginBottom: '0.5rem' }}>
-                  Welcome to ICPC Mathura
+                  Welcome to ICPC Mathura Site
                 </h1>
                 {/* <p className="font-mono" style={{ color: 'var(--accent-hover)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '1.5rem' }}>
                   Hosted by GLA University, Mathura
                 </p> */}
 
-                <div className="notes-box" style={{ borderLeftColor: 'var(--accent)', marginBottom: '1.75rem' }}>
+                <div className="notes-box" style={{ borderLeftColor: 'var(--accent)', marginBottom: '1.75rem', animation: 'blink 1.2s infinite' }}>
                   <span style={{ fontSize: '1.5rem' }}>📅</span>
                   <div>
                     <strong>Onsite Regional Round:</strong> The 2-day championship is scheduled for <strong>27–28 December 2026</strong>.
@@ -147,9 +121,9 @@ export default function Home() {
                   <Link to="/registration" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
                     Register Team &rarr;
                   </Link>
-                  <Link 
-                    to="/dates" 
-                    className="btn btn-outline-white" 
+                  <Link
+                    to="/dates"
+                    className="btn btn-outline-white"
                     style={{ border: '2px solid var(--secondary-accent)', color: 'var(--secondary-accent)', padding: '0.75rem 2rem' }}
                   >
                     View Schedule Dates
@@ -190,7 +164,6 @@ export default function Home() {
       <section className="section" style={{ backgroundColor: '#ffffff', padding: '3.5rem 0', borderTop: '1px solid rgba(0,0,0,0.06)' }} id="important-links">
         <div className="container">
           <div className="section-title-wrap">
-            <span className="section-subtitle">Reference Resources</span>
             <h2 className="section-title">Important Links</h2>
           </div>
 
@@ -251,23 +224,43 @@ export default function Home() {
       <section className="section" style={{ backgroundColor: 'var(--background)', borderTop: '1px solid rgba(0,0,0,0.06)' }} id="sponsors">
         <div className="container">
           <div className="section-title-wrap">
-            <span className="section-subtitle">Valued Partners</span>
             <h2 className="section-title">Our Sponsors</h2>
           </div>
 
-          <div className="sponsors-grid" style={{ marginTop: '2.5rem' }}>
-            <div className="sponsor-logo-box">
-              <div className="sponsor-logo-placeholder">
-                <img src={jetbrainsLogo} alt="JetBrains Logo" />
+          {/* Global Sponsors */}
+          <div style={{ marginTop: '2.5rem', marginBottom: '3rem' }}>
+            <h3 className="text-center" style={{ color: 'var(--primary-navy)', fontSize: '1.65rem', fontWeight: 700, marginBottom: '1.75rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
+              Global Sponsors
+            </h3>
+            <div className="sponsors-grid">
+              <div className="sponsor-logo-box">
+                <div className="sponsor-logo-placeholder">
+                  <img src={jetbrainsLogo} alt="JetBrains Logo" />
+                </div>
+                <span className="sponsor-badge">Global Programming Tools Sponsor</span>
               </div>
-              <span className="sponsor-badge">Global Programming Tools Sponsor</span>
-            </div>
 
-            <div className="sponsor-logo-box">
-              <div className="sponsor-logo-placeholder">
-                <img src={janestreetLogo} alt="Jane Street Logo" />
+              <div className="sponsor-logo-box">
+                <div className="sponsor-logo-placeholder">
+                  <img src={janestreetLogo} alt="Jane Street Logo" />
+                </div>
+                <span className="sponsor-badge">Titanium Multi-Regional Sponsor</span>
               </div>
-              <span className="sponsor-badge">Titanium Multi-Regional Sponsor</span>
+            </div>
+          </div>
+
+          {/* Regional Sponsors */}
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h3 className="text-center" style={{ color: 'var(--primary-navy)', fontSize: '1.65rem', fontWeight: 700, marginBottom: '1.75rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
+              Regional Sponsor
+            </h3>
+            <div className="sponsors-grid">
+              <div className="sponsor-logo-box">
+                <div className="sponsor-logo-placeholder">
+                  <img src={glaLogo} alt="GLA University Logo" />
+                </div>
+                <span className="sponsor-badge">Host & Regional Sponsor</span>
+              </div>
             </div>
           </div>
 
