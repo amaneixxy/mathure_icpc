@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
-import glaLogo from '../assets/glaLogo.png';
+import glaLogo from '../assets/image.png';
 
 export default function Sponsors() {
   return (
@@ -15,12 +15,12 @@ export default function Sponsors() {
 
       <section className="section" style={{ backgroundColor: 'var(--background)' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
-          
+
           <div className="card-plain" style={{ marginBottom: '3rem', borderTop: '4px solid var(--accent)' }}>
             <h2 className="text-center" style={{ color: 'var(--primary-navy)', fontSize: '1.8rem', fontWeight: 800, marginBottom: '2.5rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
               ICPC Global Sponsors
             </h2>
-            
+
             <div className="sponsors-grid" style={{ marginBottom: 0 }}>
               <div className="sponsor-logo-box">
                 <div className="sponsor-logo-placeholder">
@@ -48,7 +48,7 @@ export default function Sponsors() {
             <h2 className="text-center" style={{ color: 'var(--primary-navy)', fontSize: '1.8rem', fontWeight: 800, marginBottom: '2.5rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
               Regional Sponsor
             </h2>
-            
+
             <div className="sponsors-grid" style={{ marginBottom: 0 }}>
               <div className="sponsor-logo-box">
                 <div className="sponsor-logo-placeholder">

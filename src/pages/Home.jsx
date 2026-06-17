@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import mathuraBanner from '../assets/MathuraSiteBanner.jpg';
-import glaLogo from '../assets/glaLogo.png';
+import glaLogo from '../assets/image.png';
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

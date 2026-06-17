@@ -52,7 +52,7 @@ export default function Registration() {
               <div className="step-number">3</div>
               <h3 className="step-title">Confirmation & Payment</h3>
               <p className="step-desc">
-                Once details are verified, you will receive a confirmation email. Details regarding registration fees and payment instructions will be sent to the coach's email address.
+                Once details are verified, you will receive a confirmation email. Details regarding registration fees (<strong>₹1,500</strong> for the online contest and <strong>₹4,500</strong> for the onsite contest) and payment instructions will be sent to the coach's email address.
               </p>
             </div>
           </div>
