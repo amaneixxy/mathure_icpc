@@ -120,9 +120,9 @@ export default function Home() {
                 <h1 style={{ color: 'var(--primary-navy)', fontSize: '2.2rem', marginBottom: '0.5rem' }}>
                   Welcome to ICPC Mathura
                 </h1>
-                <p className="font-mono" style={{ color: 'var(--accent-hover)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+                {/* <p className="font-mono" style={{ color: 'var(--accent-hover)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '1.5rem' }}>
                   Hosted by GLA University, Mathura
-                </p>
+                </p> */}
 
                 <div className="notes-box" style={{ borderLeftColor: 'var(--accent)', marginBottom: '1.75rem' }}>
                   <span style={{ fontSize: '1.5rem' }}>📅</span>
