@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ranklistData } from '../data/ranklist';
 
+const IS_AVAILABLE = false;
+
 export default function Ranklist() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('rank'); // 'rank', 'solved', 'penalty'
@@ -70,114 +72,134 @@ export default function Ranklist() {
 
       <section className="section" style={{ backgroundColor: 'var(--background)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          
-          {/* 2. Champion Highlight Card */}
-          <div className="champion-card">
-            <div className="champion-title">🏆 Mathura Site Champion 2026</div>
-            <div className="champion-team">[TBD]</div>
-            <div className="champion-institution">Institution: [TBD]</div>
-            <div className="champion-badge">Advancing to ICPC Asia West Continent Championship</div>
+
+          {/* Onsite Teams List Status Callout */}
+          <div className="notes-box" style={{ borderLeftColor: 'var(--accent)', marginTop: 0, marginBottom: '2rem' }}>
+            <span style={{ fontSize: '1.5rem' }}>👥</span>
+            <div>
+              <strong>Onsite Teams List:</strong> The official list of selected teams for the onsite round is <strong>Coming Soon</strong>! You will be able to search and view the confirmed team listings on the <Link to="/onsite-teams" style={{ color: 'var(--accent-hover)', fontWeight: 600 }}>Onsite Teams</Link> page.
+            </div>
           </div>
 
-          <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
-            Standings Table
-          </h2>
+          {IS_AVAILABLE ? (
+            <>
+              {/* 2. Champion Highlight Card */}
+              <div className="champion-card">
+                <div className="champion-title">🏆 Mathura Site Champion 2026</div>
+                <div className="champion-team">[TBD]</div>
+                <div className="champion-institution">Institution: [TBD]</div>
+                <div className="champion-badge">Advancing to ICPC Asia West Continent Championship</div>
+              </div>
 
-          {/* 3. Filter Bar */}
-          <div className="filter-bar">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search by team name or institution..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+              <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
+                Standings Table
+              </h2>
 
-          {/* Ranklist Table */}
-          <div className="table-responsive">
-            <table className="schedule-table">
-              <thead>
-                <tr>
-                  <th 
-                    className="sortable-th"
-                    style={{ width: '12%' }}
-                    onClick={() => handleSort('rank')}
-                  >
-                    Rank {getSortIndicator('rank')}
-                  </th>
-                  <th 
-                    className="sortable-th"
-                    style={{ width: '28%' }}
-                    onClick={() => handleSort('name')}
-                  >
-                    Team Name {getSortIndicator('name')}
-                  </th>
-                  <th 
-                    className="sortable-th"
-                    style={{ width: '30%' }}
-                    onClick={() => handleSort('institution')}
-                  >
-                    Institution {getSortIndicator('institution')}
-                  </th>
-                  <th 
-                    className="sortable-th"
-                    style={{ width: '15%', textAlign: 'center' }}
-                    onClick={() => handleSort('solved')}
-                  >
-                    Solved {getSortIndicator('solved')}
-                  </th>
-                  <th 
-                    className="sortable-th"
-                    style={{ width: '15%', textAlign: 'center' }}
-                    onClick={() => handleSort('penalty')}
-                  >
-                    Penalty {getSortIndicator('penalty')}
-                  </th>
-                  <th style={{ width: '20%' }}>Award</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedData.length > 0 ? (
-                  sortedData.map((team) => (
-                    <tr key={team.rank}>
-                      <td className="font-mono font-bold">{team.rank}</td>
-                      <td className="font-bold" style={{ color: 'var(--primary-navy)' }}>{team.name}</td>
-                      <td>{team.institution}</td>
-                      <td className="font-mono font-bold" style={{ textAlign: 'center' }}>{team.solved}</td>
-                      <td className="font-mono" style={{ textAlign: 'center', color: 'var(--muted-text)' }}>{team.penalty}</td>
-                      <td>{getAwardBadge(team.award)}</td>
+              {/* 3. Filter Bar */}
+              <div className="filter-bar">
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Search by team name or institution..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
+              {/* Ranklist Table */}
+              <div className="table-responsive">
+                <table className="schedule-table">
+                  <thead>
+                    <tr>
+                      <th
+                        className="sortable-th"
+                        style={{ width: '12%' }}
+                        onClick={() => handleSort('rank')}
+                      >
+                        Rank {getSortIndicator('rank')}
+                      </th>
+                      <th
+                        className="sortable-th"
+                        style={{ width: '28%' }}
+                        onClick={() => handleSort('name')}
+                      >
+                        Team Name {getSortIndicator('name')}
+                      </th>
+                      <th
+                        className="sortable-th"
+                        style={{ width: '30%' }}
+                        onClick={() => handleSort('institution')}
+                      >
+                        Institution {getSortIndicator('institution')}
+                      </th>
+                      <th
+                        className="sortable-th"
+                        style={{ width: '15%', textAlign: 'center' }}
+                        onClick={() => handleSort('solved')}
+                      >
+                        Solved {getSortIndicator('solved')}
+                      </th>
+                      <th
+                        className="sortable-th"
+                        style={{ width: '15%', textAlign: 'center' }}
+                        onClick={() => handleSort('penalty')}
+                      >
+                        Penalty {getSortIndicator('penalty')}
+                      </th>
+                      <th style={{ width: '20%' }}>Award</th>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="6" style={{ textAlign: 'center', padding: '2rem', color: 'var(--muted-text)' }}>
-                      No matching teams found. Try another search query.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  </thead>
+                  <tbody>
+                    {sortedData.length > 0 ? (
+                      sortedData.map((team) => (
+                        <tr key={team.rank}>
+                          <td className="font-mono font-bold">{team.rank}</td>
+                          <td className="font-bold" style={{ color: 'var(--primary-navy)' }}>{team.name}</td>
+                          <td>{team.institution}</td>
+                          <td className="font-mono font-bold" style={{ textAlign: 'center' }}>{team.solved}</td>
+                          <td className="font-mono" style={{ textAlign: 'center', color: 'var(--muted-text)' }}>{team.penalty}</td>
+                          <td>{getAwardBadge(team.award)}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="6" style={{ textAlign: 'center', padding: '2rem', color: 'var(--muted-text)' }}>
+                          No matching teams found. Try another search query.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
 
-          {/* 4. Download PDF Action */}
-          <div className="text-center" style={{ margin: '2rem 0 4rem 0' }}>
-            <a 
-              href="/ranklist2026.pdf" 
-              onClick={(e) => e.preventDefault()}
-              className="btn btn-primary"
-              style={{ display: 'inline-flex', gap: '0.5rem' }}
-            >
-              <span>📥</span> Download Official Ranklist (PDF)
-            </a>
-          </div>
+              {/* 4. Download PDF Action */}
+              <div className="text-center" style={{ margin: '2rem 0 4rem 0' }}>
+                <a
+                  href="/ranklist2026.pdf"
+                  onClick={(e) => e.preventDefault()}
+                  className="btn btn-primary"
+                  style={{ display: 'inline-flex', gap: '0.5rem' }}
+                >
+                  <span>📥</span> Download Official Ranklist (PDF)
+                </a>
+              </div>
+            </>
+          ) : (
+            <div className="card-plain text-center" style={{ padding: '3.5rem 2.5rem', marginBottom: '3rem' }}>
+              <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>⏳</span>
+              <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>No Ranklist Available</h3>
+              <p className="text-muted" style={{ maxWidth: '600px', marginInline: 'auto' }}>
+                The official ranklist for the ICPC Mathura 2026 contest is not available right now. Please check back later.
+              </p>
+            </div>
+          )}
 
           {/* 5. Past Results Section */}
-          <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '3rem' }}>
+          {/* <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '3rem' }}>
             <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
               Previous Years Results
             </h2>
-            
+
             <div className="past-results-grid">
               <div className="past-result-card">
                 <div>
@@ -218,7 +240,7 @@ export default function Ranklist() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>

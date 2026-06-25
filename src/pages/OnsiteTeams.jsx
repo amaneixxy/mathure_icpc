@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { onsiteTeams } from '../data/onsiteTeams';
 
 // Toggle this boolean flag to change the publication status of the onsite list
-const IS_PUBLISHED = true;
+const IS_PUBLISHED = false;
 const PUBLISHED_DATE = "June 15, 2026";
 
 export default function OnsiteTeams() {
@@ -30,14 +30,14 @@ export default function OnsiteTeams() {
       {/* Main Section */}
       <section className="section" style={{ backgroundColor: 'var(--background)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          
+
           {/* 2. Status Banner */}
           <div style={{ marginBottom: '2.5rem' }}>
             {IS_PUBLISHED ? (
-              <div 
-                className="card-plain" 
-                style={{ 
-                  borderLeft: '4px solid #27c93f', 
+              <div
+                className="card-plain"
+                style={{
+                  borderLeft: '4px solid #27c93f',
                   backgroundColor: 'rgba(39, 201, 63, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
@@ -121,8 +121,8 @@ export default function OnsiteTeams() {
 
               {/* 4. Download Full List PDF Action */}
               <div className="text-center" style={{ marginTop: '2.5rem' }}>
-                <a 
-                  href="/onsite_teams_list.pdf" 
+                <a
+                  href="/onsite_teams_list.pdf"
                   onClick={(e) => e.preventDefault()}
                   className="btn btn-primary"
                   style={{ display: 'inline-flex', gap: '0.5rem' }}
