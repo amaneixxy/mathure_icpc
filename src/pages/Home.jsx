@@ -199,7 +199,7 @@ export default function Home() {
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Memories from previous onsite rounds.</p>
             </Link>
 
-            <Link to="/schedule" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--primary-navy)' }}>
+            <Link  className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--primary-navy)' }}>
               <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>📅</div>
               <h3 style={{ fontSize: '1.05rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Program Schedule</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Full schedule of contest events.</p>

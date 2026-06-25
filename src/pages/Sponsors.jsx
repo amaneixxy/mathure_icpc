@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import glaLogo from '../assets/image.png';
+import jetbrainsVideo from '../assets/sponsorVideos/Jetbeans.mp4';
+import janeStreetVideo from '../assets/sponsorVideos/JaneStreet.mp4';
 
 export default function Sponsors() {
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  const handleSponsorClick = (sponsor) => {
+    setActiveVideo((current) => (current === sponsor ? null : sponsor));
+  };
+
   return (
     <div>
       <section className="page-header">
@@ -23,23 +32,53 @@ export default function Sponsors() {
 
             <div className="sponsors-grid" style={{ marginBottom: 0 }}>
               <div className="sponsor-logo-box">
-                <div className="sponsor-logo-placeholder">
-                  <img src={jetbrainsLogo} alt="JetBrains Logo" />
-                </div>
-                <span className="sponsor-badge">Global Programming Tools Sponsor</span>
-                <p className="text-muted text-center" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
-                  JetBrains provides developers with tools that speed up production, freeing them to grow and create.
-                </p>
+                <button
+                  type="button"
+                  onClick={() => handleSponsorClick('jetbrains')}
+                  style={{ all: 'unset', cursor: 'pointer', width: '100%' }}
+                  aria-expanded={activeVideo === 'jetbrains'}
+                >
+                  <div className="sponsor-logo-placeholder">
+                    <img src={jetbrainsLogo} alt="JetBrains Logo" />
+                  </div>
+                  <p className="text-muted text-center" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
+                    JetBrains provides developers with tools that speed up production, freeing them to grow and create.
+                  </p>
+                </button>
+
+                {activeVideo === 'jetbrains' && (
+                  <div style={{ marginTop: '1rem' }}>
+                    <video controls autoPlay style={{ width: '100%', borderRadius: '0.75rem' }}>
+                      <source src={jetbrainsVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
               </div>
 
               <div className="sponsor-logo-box">
-                <div className="sponsor-logo-placeholder">
-                  <img src={janestreetLogo} alt="Jane Street Logo" />
-                </div>
-                <span className="sponsor-badge">Titanium Multi-Regional Sponsor</span>
-                <p className="text-muted text-center" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
-                  Jane Street is a quantitative trading firm with a unique focus on technology and collaborative problem-solving.
-                </p>
+                <button
+                  type="button"
+                  onClick={() => handleSponsorClick('janestreet')}
+                  style={{ all: 'unset', cursor: 'pointer', width: '100%' }}
+                  aria-expanded={activeVideo === 'janestreet'}
+                >
+                  <div className="sponsor-logo-placeholder">
+                    <img src={janestreetLogo} alt="Jane Street Logo" />
+                  </div>
+                  <p className="text-muted text-center" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
+                    Jane Street is a quantitative trading firm with a unique focus on technology and collaborative problem-solving.
+                  </p>
+                </button>
+
+                {activeVideo === 'janestreet' && (
+                  <div style={{ marginTop: '1rem' }}>
+                    <video controls autoPlay style={{ width: '100%', borderRadius: '0.75rem' }}>
+                      <source src={janeStreetVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
               </div>
             </div>
           </div>
