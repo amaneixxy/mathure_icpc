@@ -1018,6 +1018,18 @@ a {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .page-header {
+    padding: 2.5rem 0;
+  }
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+  }
+}
+
 /* TIMELINE STYLES */
 .timeline-wrapper {
   position: relative;
@@ -1319,6 +1331,29 @@ a {
   border-color: var(--accent);
   color: var(--primary-dark);
   box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .tab-btn {
+    flex: 1 1 calc(50% - 0.25rem);
+    max-width: calc(50% - 0.25rem);
+    font-size: 0.825rem;
+    padding: 0.5rem 0.25rem;
+    border-width: 1.5px;
+    border-radius: 8px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /* Responsive Table Styles */
@@ -1820,6 +1855,20 @@ a {
 
   .lightbox-next {
     right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lightbox-close {
+    top: 15px;
+    right: 15px;
+    font-size: 2.5rem;
+  }
+  
+  .lightbox-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
 }
 
