@@ -3,14 +3,19 @@ import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import glaLogo from '../assets/image.png';
-import jetbrainsVideo from '../assets/sponsorVideos/Jetbeans.mp4';
-import janeStreetVideo from '../assets/sponsorVideos/JaneStreet.mp4';
+
+const JETBRAINS_VIDEO_URL = 'https://drive.google.com/file/d/1GeAor9Fey7n_wdmtEouOAM21Po_QlLU-/preview';
+const JANESTREET_VIDEO_URL = 'https://drive.google.com/file/d/1QD3An-Yw4MfkZF-fwuLzf10r2BPXzqiK/preview';
 
 export default function Sponsors() {
-  const [activeVideo, setActiveVideo] = useState(null);
+  const [modalVideo, setModalVideo] = useState(null);
 
-  const handleSponsorClick = (sponsor) => {
-    setActiveVideo((current) => (current === sponsor ? null : sponsor));
+  const handleSponsorClick = (sponsor, videoUrl) => {
+    setModalVideo({ sponsor, videoUrl });
+  };
+
+  const closeModal = () => {
+    setModalVideo(null);
   };
 
   return (
@@ -34,9 +39,8 @@ export default function Sponsors() {
               <div className="sponsor-logo-box">
                 <button
                   type="button"
-                  onClick={() => handleSponsorClick('jetbrains')}
+                  onClick={() => handleSponsorClick('jetbrains', JETBRAINS_VIDEO_URL)}
                   style={{ all: 'unset', cursor: 'pointer', width: '100%' }}
-                  aria-expanded={activeVideo === 'jetbrains'}
                 >
                   <div className="sponsor-logo-placeholder">
                     <img src={jetbrainsLogo} alt="JetBrains Logo" />
@@ -45,23 +49,13 @@ export default function Sponsors() {
                     JetBrains provides developers with tools that speed up production, freeing them to grow and create.
                   </p>
                 </button>
-
-                {activeVideo === 'jetbrains' && (
-                  <div style={{ marginTop: '1rem' }}>
-                    <video controls autoPlay style={{ width: '100%', borderRadius: '0.75rem' }}>
-                      <source src={jetbrainsVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
               </div>
 
               <div className="sponsor-logo-box">
                 <button
                   type="button"
-                  onClick={() => handleSponsorClick('janestreet')}
+                  onClick={() => handleSponsorClick('janestreet', JANESTREET_VIDEO_URL)}
                   style={{ all: 'unset', cursor: 'pointer', width: '100%' }}
-                  aria-expanded={activeVideo === 'janestreet'}
                 >
                   <div className="sponsor-logo-placeholder">
                     <img src={janestreetLogo} alt="Jane Street Logo" />
@@ -70,15 +64,6 @@ export default function Sponsors() {
                     Jane Street is a quantitative trading firm with a unique focus on technology and collaborative problem-solving.
                   </p>
                 </button>
-
-                {activeVideo === 'janestreet' && (
-                  <div style={{ marginTop: '1rem' }}>
-                    <video controls autoPlay style={{ width: '100%', borderRadius: '0.75rem' }}>
-                      <source src={janeStreetVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -114,6 +99,80 @@ export default function Sponsors() {
 
         </div>
       </section>
+
+      {/* Video Modal Popup */}
+      {modalVideo && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            padding: '1rem',
+          }}
+          onClick={closeModal}
+        >
+          <div
+            style={{
+              backgroundColor: 'var(--card-bg)',
+              borderRadius: '0rem',
+              padding: '1.5rem',
+              width: '100vw',
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeModal}
+              style={{
+                position: 'absolute',
+                top: '0.75rem',
+                right: '0.75rem',
+                background: 'none',
+                border: 'none',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+                color: 'var(--text-primary)',
+                width: '2rem',
+                height: '2rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              aria-label="Close video"
+            >
+              ✕
+            </button>
+
+            <h3 style={{ color: 'var(--primary-navy)', marginBottom: '1rem', marginTop: 0 }}>
+              {modalVideo.sponsor === 'jetbrains' ? 'JetBrains' : 'Jane Street'} Video
+            </h3>
+
+            <iframe
+              src={modalVideo.videoUrl}
+              style={{
+                width: '100%',
+                height: 'calc(100vh - 5rem)',
+                borderRadius: '0rem',
+                border: 'none',
+                flex: 1,
+              }}
+              sandbox="allow-same-origin allow-scripts allow-presentation"
+              title={`${modalVideo.sponsor} Sponsor Video`}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
