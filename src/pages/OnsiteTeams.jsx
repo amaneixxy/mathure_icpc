@@ -55,10 +55,7 @@ export default function OnsiteTeams() {
             ) : (
               <div className="card-plain text-center">
                 <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>⏳</span>
-                <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>List Not Yet Published</h3>
-                <p className="text-muted" style={{ maxWidth: '600px', marginInline: 'auto' }}>
-                  The list of selected teams will be published after the Preliminary Online Round has concluded. Check back soon for updates.
-                </p>
+                <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Yet To Be Declared</h3>
               </div>
             )}
           </div>

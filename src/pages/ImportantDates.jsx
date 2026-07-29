@@ -1,7 +1,7 @@
 export default function ImportantDates() {
   const events = [
     {
-      date: "To be Announced",
+      date: "1st August 2026",
       title: "Registration Opens",
       description: "Teams register on ICPC Global and then local confirmation opens.",
       completed: false,
@@ -9,13 +9,13 @@ export default function ImportantDates() {
     {
       date: "To be Announced",
       title: "Preliminary Online Contest",
-      description: "Hosted online; top teams qualify for the onsite round at GLA University.",
+      description: "Hosted online; top teams qualify for the onsite round at GLA University, Mathura.",
       completed: false,
     },
     {
       date: "To be Announced",
       title: "Final Team Selection",
-      description: "List of teams selected for the GLA University onsite round published.",
+      description: "List of teams selected for the GLA University, Mathura onsite round published.",
       completed: false,
     },
     {
@@ -32,7 +32,7 @@ export default function ImportantDates() {
       <section className="page-header">
         <div className="container">
           <h1>Important Dates</h1>
-          <p>ICPC Mathura 2026 — GLA University</p>
+          <p>ICPC Mathura 2026 — GLA University, Mathura</p>
         </div>
       </section>
 

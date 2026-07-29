@@ -66,7 +66,7 @@ export default function Ranklist() {
             <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 8px rgba(255,181,102,0.5))' }}>🏆</span>
             <h1>Official Ranklist</h1>
           </div>
-          <p>ICPC Mathura 2026 — GLA University</p>
+          <p>ICPC Mathura 2026 — GLA University, Mathura</p>
         </div>
       </section>
 

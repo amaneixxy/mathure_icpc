@@ -8,7 +8,7 @@ export default function Registration() {
       <section className="page-header">
         <div className="container">
           <h1 style={{ color: 'var(--accent)' }}>Registration</h1>
-          <p>ICPC Mathura 2026 — GLA University</p>
+          <p>ICPC Mathura 2026 — GLA University, Mathura</p>
           
           <div className={`status-badge ${REGISTRATION_OPEN ? 'open' : 'closed'}`}>
             <span style={{ 

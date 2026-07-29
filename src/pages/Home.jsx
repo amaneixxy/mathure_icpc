@@ -36,14 +36,15 @@ export default function Home() {
               </div>
 
               <div className="sidebar-content">
+
                 {/* Update Card 1 */}
                 <div className="update-card">
                   <div className="update-card-title">
                     <span className="badge-new">NEW!</span>
-                    Report from the Regional Contest Director
+                    Registration Opens
                   </div>
                   <div className="update-card-subtitle">
-                    ICPC Mathura Site 2026
+                    1st Aug 2026
                   </div>
                 </div>
 
@@ -58,17 +59,27 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Update Card 3 */}
+                {/* Update Card 3: Contest Date */}
                 <div className="update-card">
                   <div className="update-card-title">
-                    Registration Opens Soon
+                    <span className="badge-new">NEW!</span>
+                    Contest Date
                   </div>
                   <div className="update-card-subtitle">
-                    Keep checking the registration portal
+                    27–28 Dec 2026
                   </div>
                 </div>
 
-
+                {/* Update Card 4 */}
+                <div className="update-card">
+                  <div className="update-card-title">
+                    <span className="badge-new">NEW!</span>
+                    Report from the Regional Contest Director
+                  </div>
+                  <div className="update-card-subtitle">
+                    ICPC Mathura Site 2026
+                  </div>
+                </div>
 
                 {/* Link Card: Visit ICPC Asia West Continent Page */}
                 <a
@@ -148,7 +159,7 @@ export default function Home() {
                   <div>
                     <h3 style={{ fontSize: '1rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Contest Rules</h3>
                     <ul style={{ paddingLeft: '1.25rem', fontSize: '0.9rem', color: 'var(--muted-text)', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                      <li>Contest Duration: <strong>5 Hours</strong></li>
+                      <li>Maximum Contest Duration: <strong>5 Hours</strong></li>
                       <li>Supported languages: <strong>C, C++, Java, Python</strong></li>
                     </ul>
                   </div>
@@ -174,7 +185,7 @@ export default function Home() {
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Official central registration platform.</p>
             </a>
 
-            <a href="https://acm-icpc.asia/" target="_blank" rel="noopener noreferrer" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--secondary-accent)' }}>
+            <a href="https://wc.indiaicpc.in/" target="_blank" rel="noopener noreferrer" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--secondary-accent)' }}>
               <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>🏆</div>
               <h3 style={{ fontSize: '1.05rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Asia West Championship</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Continent Championship information.</p>
@@ -199,7 +210,7 @@ export default function Home() {
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Memories from previous onsite rounds.</p>
             </Link>
 
-            <Link  className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--primary-navy)' }}>
+            <Link className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--primary-navy)' }}>
               <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>📅</div>
               <h3 style={{ fontSize: '1.05rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Program Schedule</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Full schedule of contest events.</p>

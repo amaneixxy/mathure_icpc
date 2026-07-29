@@ -15,16 +15,6 @@ export default function SelectionCriteria() {
       description: "Selection lists are balanced to account for geographic and institution diversity as per the ICPC Asia Region guidelines.",
       icon: "🏢",
     },
-    {
-      title: "GLA University Teams",
-      description: "GLA University teams meeting the minimum qualifying requirements receive priority slots as host institution allocations.",
-      icon: "🎓",
-    },
-    {
-      title: "Wildcard Entries",
-      description: "The Contest Director reserves the right to issue wildcard entries to deserving teams under special selection rubrics.",
-      icon: "🃏",
-    },
   ];
 
   return (
@@ -64,7 +54,7 @@ export default function SelectionCriteria() {
                 <div className="flowchart-arrow">▼</div>
                 <div className="flowchart-step">3. Top N Teams Selected</div>
                 <div className="flowchart-arrow">▼</div>
-                <div className="flowchart-step">4. Onsite Round at GLA University</div>
+                <div className="flowchart-step">4. Onsite Round at GLA University, Mathura</div>
               </div>
             </div>
           </div>
@@ -87,12 +77,12 @@ export default function SelectionCriteria() {
           </div>
 
           {/* 4. Note Box */}
-          <div className="notes-box">
+          {/* <div className="notes-box">
             <span style={{ fontSize: '1.5rem' }}>ℹ️</span>
             <div>
               <strong>Final Authority:</strong> Final selections and team slots are at the sole discretion of the ICPC Mathura Site Contest Director. All team allocation decisions are final and binding.
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>

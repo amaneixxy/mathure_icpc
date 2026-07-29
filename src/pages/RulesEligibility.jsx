@@ -6,7 +6,7 @@ export default function RulesEligibility() {
   ];
 
   const contestFormat = [
-    { label: "Contest Duration", value: "5 Hours" },
+    { label: "Maximum Contest Duration", value: "5 Hours" },
     { label: "Number of Problems", value: "8 to 12 algorithmic challenges" },
     { label: "Evaluation Criteria", value: "Most problems solved; tiebroken by lowest penalty time" },
   ];
@@ -22,7 +22,7 @@ export default function RulesEligibility() {
 
       <section className="section" style={{ backgroundColor: 'var(--background)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          
+
           <div className="grid grid-cols-2" style={{ gap: '2rem', alignItems: 'start', marginBottom: '3rem' }}>
             {/* Team Structure */}
             <div className="card-plain" style={{ borderTop: '4px solid var(--accent)' }}>
@@ -50,9 +50,9 @@ export default function RulesEligibility() {
               </p>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 {['C', 'C++', 'Java', 'Python'].map((lang) => (
-                  <span 
-                    key={lang} 
-                    className="sponsor-badge font-mono" 
+                  <span
+                    key={lang}
+                    className="sponsor-badge font-mono"
                     style={{ fontSize: '0.9rem', padding: '0.4rem 1.25rem', backgroundColor: 'var(--primary-dark)', color: '#ffffff', borderColor: 'var(--accent)' }}
                   >
                     {lang}

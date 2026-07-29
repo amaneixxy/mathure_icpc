@@ -19,7 +19,7 @@ export default function FAQ() {
       <section className="page-header">
         <div className="container">
           <h1>Frequently Asked Questions</h1>
-          <p>ICPC Mathura — GLA University</p>
+          <p>ICPC Mathura — GLA University, Mathura</p>
         </div>
       </section>
 

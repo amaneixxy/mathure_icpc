@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
+import janestreetLogo from '../assets/JaneStreetLogo.png';
+import glaLogo from '../assets/glaLogo.png';
 
 export default function Footer() {
   return (
@@ -29,6 +32,91 @@ export default function Footer() {
             <p className="footer-subtitle">
               Hosted by GLA University, Mathura. Bringing together the finest undergraduate minds across India to push the boundaries of algorithmic problem-solving.
             </p>
+
+            {/* Official Sponsors Logos with Links */}
+            <div className="footer-sponsors" style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', fontWeight: 700, display: 'block' }}>
+                Our Official Sponsors
+              </span>
+
+              {/* Global Sponsors Row */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+                <a 
+                  href="https://www.jetbrains.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  title="JetBrains"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    backgroundColor: '#ffffff', 
+                    width: '140px',
+                    height: '50px',
+                    padding: '0.4rem 0.75rem', 
+                    borderRadius: '8px',
+                    transition: 'transform 0.2s ease, boxShadow 0.2s ease',
+                    boxShadow: '0 3px 8px rgba(0,0,0,0.3)',
+                    boxSizing: 'border-box'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                >
+                  <img src={jetbrainsLogo} alt="JetBrains" style={{ maxHeight: '34px', maxWidth: '120px', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block' }} />
+                </a>
+
+                <a 
+                  href="https://www.janestreet.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  title="Jane Street"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    backgroundColor: '#ffffff', 
+                    width: '140px',
+                    height: '50px',
+                    padding: '0.4rem 0.75rem', 
+                    borderRadius: '8px',
+                    transition: 'transform 0.2s ease, boxShadow 0.2s ease',
+                    boxShadow: '0 3px 8px rgba(0,0,0,0.3)',
+                    boxSizing: 'border-box'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                >
+                  <img src={janestreetLogo} alt="Jane Street" style={{ maxHeight: '34px', maxWidth: '120px', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block' }} />
+                </a>
+              </div>
+
+              {/* Regional / Host Sponsor Row (Below Global Sponsors) */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                <a 
+                  href="https://www.gla.ac.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  title="GLA University"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    backgroundColor: '#ffffff', 
+                    width: '140px',
+                    height: '50px',
+                    padding: '0.4rem 0.75rem', 
+                    borderRadius: '8px',
+                    transition: 'transform 0.2s ease, boxShadow 0.2s ease',
+                    boxShadow: '0 3px 8px rgba(0,0,0,0.3)',
+                    boxSizing: 'border-box'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                >
+                  <img src={glaLogo} alt="GLA University" style={{ maxHeight: '34px', maxWidth: '120px', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block' }} />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links Column 1: About & Info */}
@@ -87,7 +175,7 @@ export default function Footer() {
         {/* Footer Copyright */}
         <div className="footer-copyright">
           <div>
-            © 2026 ICPC Mathura • GLA University • All rights reserved
+            © 2026 ICPC Mathura • GLA University, Mathura • All rights reserved
           </div>
           <div className="footer-socials">
             <a href="#" className="footer-social-icon" aria-label="Twitter X">

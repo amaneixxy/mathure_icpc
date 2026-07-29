@@ -39,7 +39,7 @@ export default function Gallery() {
       <section className="page-header">
         <div className="container">
           <h1>Moments Gallery</h1>
-          <p>ICPC Mathura onsite events at GLA University</p>
+          <p>ICPC Mathura onsite events at GLA University, Mathura</p>
         </div>
       </section>
 
