@@ -480,6 +480,18 @@ a {
   box-shadow: 0 4px 12px rgba(255, 181, 102, 0.3);
 }
 
+.btn-secondary {
+  background-color: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 181, 102, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 181, 102, 0.2);
+}
+
 .btn-outline-white {
   background-color: transparent;
   color: #ffffff;
@@ -767,6 +779,75 @@ a {
 .card-plain:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+}
+
+.important-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .important-dates-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .important-dates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.important-dates-card {
+  background-color: var(--card-bg);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  min-height: 190px;
+  box-shadow: var(--shadow-md);
+  border-left: 6px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-normal);
+}
+
+.important-dates-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.important-dates-card.blue {
+  border-left-color: var(--primary-navy);
+}
+
+.important-dates-card.yellow {
+  border-left-color: var(--accent);
+}
+
+.important-dates-card.red {
+  border-left-color: var(--secondary-accent);
+}
+
+.important-dates-card h4 {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+}
+
+.important-dates-date {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  color: var(--primary-navy);
+}
+
+.important-dates-desc {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 /* WEBSITES SECTION */

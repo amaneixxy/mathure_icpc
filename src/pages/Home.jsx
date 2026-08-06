@@ -288,11 +288,11 @@ export default function Home() {
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>ICPC training grounds & mock rounds.</p>
             </a>
 
-            <Link to="/archive" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--accent-hover)' }}>
+            <div className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--accent-hover)', opacity: 0.7 }}>
               <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>📁</div>
               <h3 style={{ fontSize: '1.05rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>Previous Problem Sets</h3>
-              <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Download past contest PDF archives.</p>
-            </Link>
+              <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Available on request only. Check back later for the archive page.</p>
+            </div>
 
             {/* Row 2 */}
             <Link to="/gallery" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--accent-hover)' }}>

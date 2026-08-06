@@ -19,7 +19,6 @@ import Contact from './pages/Contact';
 // New Pages
 import About from './pages/About';
 import RulesEligibility from './pages/RulesEligibility';
-import ProblemArchive from './pages/ProblemArchive';
 import Sponsors from './pages/Sponsors';
 
 export default function App() {
@@ -35,7 +34,6 @@ export default function App() {
             <Route path="/dates" element={<ImportantDates />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/rules" element={<RulesEligibility />} />
-            <Route path="/archive" element={<ProblemArchive />} />
             <Route path="/selection" element={<SelectionCriteria />} />
             <Route path="/onsite-teams" element={<OnsiteTeams />} />
             <Route path="/schedule" element={<ProgramSchedule />} />

@@ -9,12 +9,12 @@ export default function Registration() {
         <div className="container">
           <h1 style={{ color: 'var(--accent)' }}>Registration</h1>
           <p>ICPC Mathura 2026 — GLA University, Mathura</p>
-          
+
           <div className={`status-badge ${REGISTRATION_OPEN ? 'open' : 'closed'}`}>
-            <span style={{ 
-              width: '8px', 
-              height: '8px', 
-              borderRadius: '50%', 
+            <span style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
               backgroundColor: REGISTRATION_OPEN ? '#27c93f' : '#ff5f56',
               display: 'inline-block'
             }}></span>
@@ -25,12 +25,12 @@ export default function Registration() {
 
       <section className="section" style={{ backgroundColor: 'var(--background)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          
+
           {/* 2. Registration Steps */}
           <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2.5rem' }}>
             Registration Process
           </h2>
-          
+
           <div className="steps-container">
             <div className="step-card">
               <div className="step-number">1</div>
@@ -57,7 +57,32 @@ export default function Registration() {
             </div>
           </div>
 
-          {/* 3. Registration Form / Link Card */}
+          {/* 3. Registration Schedule Summary */}
+          <div style={{ marginTop: '3rem' }}>
+            <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
+              ICPC Mathura 2026 Schedule
+            </h2>
+            <div className="important-dates-grid">
+              {[
+                { label: 'Registration Starts', date: '06 August 2026', subtext: '', color: 'blue' },
+                { label: 'Registration Closes', date: '20 September 2026', subtext: '05:00 PM IST', color: 'blue' },
+                { label: 'Fee Payment Starts', date: '15 August 2026', subtext: '', color: 'yellow' },
+                { label: 'Fee Payment Closes', date: '21 September 2026', subtext: '05:00 PM IST', color: 'yellow' },
+                { label: 'ICPC India Preliminary Online Contest', date: '03 October 2026', subtext: 'Contest time will be announced later', color: 'red' },
+                { label: 'Mathura Multi-Site Onsite Contest', date: '27–28 December 2026', subtext: 'GLA University, Mathura', color: 'red' },
+              ].map((item) => (
+                <div key={item.label} className={`important-dates-card ${item.color}`}>
+                  <div>
+                    <h4>{item.label}</h4>
+                    <div className="important-dates-date">{item.date}</div>
+                    {item.subtext && <p className="important-dates-desc">{item.subtext}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 4. Registration Form / Link Card */}
           <div style={{ margin: '3rem 0' }}>
             {REGISTRATION_OPEN ? (
               <div className="card-plain text-center" style={{ borderTop: '4px solid #e3a220ff' }}>
@@ -65,15 +90,31 @@ export default function Registration() {
                 <p className="text-muted" style={{ marginBottom: '1.5rem', maxWidth: '600px', marginInline: 'auto' }}>
                   Click below to be redirected to the official ICPC registration portal. Make sure you have your team members' details and coach information ready.
                 </p>
-                <a 
-                  href="https://icpc.global/regionals/finder/mathuraprelim-2027" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-primary"
-                  style={{ display: 'inline-flex', padding: '0.85rem 2rem' }}
-                >
-                  Register Now &rarr;
-                </a>
+                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <a
+                    href="https://icpc.global/regionals/finder/mathuraprelim-2027"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    style={{ display: 'inline-flex', padding: '0.85rem 2rem' }}
+                  >
+                    Register Now &rarr;
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => alert('Fee payment starts from 15 August 2026')}
+                    className="btn btn-secondary"
+                    style={{
+                      display: 'inline-flex',
+                      padding: '0.85rem 2rem',
+                      borderColor: 'var(--primary-navy)',
+                      color: 'var(--primary-navy)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Fee Payment After Registration
+                  </button>
+                </div>
                 <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '1rem' }}>
                   * You will be redirected to the official ICPC registration portal.
                 </p>
@@ -131,7 +172,7 @@ export default function Registration() {
               <p className="text-muted" style={{ fontSize: '0.95rem' }}>
                 Please review all eligibility guidelines on the official ICPC website before submitting registration requests. Ineligible registrations will be disqualified automatically without a refund.
               </p>
-              
+
               <div className="warning-box">
                 <span style={{ fontSize: '1.25rem' }}>⚠️</span>
                 <div>

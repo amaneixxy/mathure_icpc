@@ -1,21 +1,33 @@
 export default function ImportantDates() {
   const events = [
     {
-      date: "1st August 2026",
-      title: "Registration Opens",
-      description: "Teams register on ICPC Global and then local confirmation opens.",
+      date: "06 August 2026",
+      title: "Registration Starts",
+      description: "Teams register on ICPC Global and begin the ICPC Mathura site confirmation process.",
       completed: false,
     },
     {
-      date: "To be Announced",
+      date: "20 September 2026",
+      title: "Registration Closes",
+      description: "Final deadline to register your team for ICPC Mathura 2026.",
+      completed: false,
+    },
+    {
+      date: "15 August 2026",
+      title: "Fee Payment Starts",
+      description: "Confirmed teams may begin submitting payment for ICPC Mathura 2026.",
+      completed: false,
+    },
+    {
+      date: "21 September 2026",
+      title: "Fee Payment Closes",
+      description: "Last date for confirmed ICPC Mathura teams to complete payment.",
+      completed: false,
+    },
+    {
+      date: "03 October 2026",
       title: "Preliminary Online Contest",
       description: "Hosted online; top teams qualify for the onsite round at GLA University, Mathura.",
-      completed: false,
-    },
-    {
-      date: "To be Announced",
-      title: "Final Team Selection",
-      description: "List of teams selected for the GLA University, Mathura onsite round published.",
       completed: false,
     },
     {

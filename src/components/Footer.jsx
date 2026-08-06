@@ -125,7 +125,6 @@ export default function Footer() {
             <ul className="footer-links-list">
               <li><Link to="/about">About ICPC</Link></li>
               <li><Link to="/rules">Rules & Eligibility</Link></li>
-              <li><Link to="/archive">Problem Archive</Link></li>
               <li><Link to="/selection">Selection Criteria</Link></li>
             </ul>
           </div>

@@ -20,7 +20,6 @@ export default function Navbar() {
     { label: 'Important Dates', path: '/dates' },
     { label: 'Registration', path: '/registration' },
     { label: 'Rules & Eligibility', path: '/rules' },
-    { label: 'Problem Archive', path: '/archive' },
   ];
 
   // Secondary links grouped under "Contest Info ▾" dropdown on desktop
