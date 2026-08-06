@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="update-card">
                   <div className="update-card-title">
                     <span className="badge-new">NEW!</span>
-                    Registration Opened 
+                    Registration Opened
                   </div>
                   {/* <div className="update-card-subtitle">
                     6th Aug 2026
@@ -176,7 +176,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '1000px' }}>
           <div style={{ marginBottom: '2rem' }}>
             <span className="registration-badge">REGISTRATION</span>
-            <h2 className="registration-main-title">Register now : Complete payment from 12 August to 15 August</h2>
+            <h2 className="registration-main-title">Register now : Complete payment from 15 August to 21 September</h2>
             <p className="registration-sub-desc">
               Complete every step using consistent participant details. All three students and the coach must be from the same institution, and every participant should use the same email address across ICPC registrations.
             </p>
@@ -187,7 +187,7 @@ export default function Home() {
             <div style={{ flex: '1 1 600px' }}>
               <h4 className="payment-notice-title">Do not wait for the payment window</h4>
               <p className="payment-notice-text">
-                Start your team registration now. Fee payment information will be available on this website by <strong>12 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
+                Start your team registration now. Fee payment information will be available on this website by <strong>15 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
               </p>
             </div>
             <div>
