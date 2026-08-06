@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
-import glaLogo from '../assets/image.png';
+import glaLogo from '../assets/GlaNewLogo.jpg';
 
 const JETBRAINS_VIDEO_URL = 'https://drive.google.com/file/d/1GeAor9Fey7n_wdmtEouOAM21Po_QlLU-/preview';
 const JANESTREET_VIDEO_URL = 'https://drive.google.com/file/d/1QD3An-Yw4MfkZF-fwuLzf10r2BPXzqiK/preview';

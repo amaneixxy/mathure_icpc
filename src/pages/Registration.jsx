@@ -36,7 +36,7 @@ export default function Registration() {
               <div className="step-number">1</div>
               <h3 className="step-title">Register on ICPC Global</h3>
               <p className="step-desc">
-                Go to <a href="https://icpc.global" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-hover)', fontWeight: 600 }}>icpc.global</a> and create an account. Form your team of exactly 3 eligible students and 1 faculty coach. Make sure your team profile is complete to obtain your <strong>ICPC Team ID</strong>.
+                Go to <a href="https://icpc.global/regionals/finder/mathuraprelim-2027" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-hover)', fontWeight: 600 }}>icpc.global</a> and create an account. Form your team of exactly 3 eligible students and 1 faculty coach. Make sure your team profile is complete to obtain your <strong>ICPC Team ID</strong>.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function Registration() {
                   Click below to be redirected to the official ICPC registration portal. Make sure you have your team members' details and coach information ready.
                 </p>
                 <a 
-                  href="https://icpc.global" 
+                  href="https://icpc.global/regionals/finder/mathuraprelim-2027" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-primary"

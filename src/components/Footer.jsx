@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
-import glaLogo from '../assets/glaLogo.png';
+import glaLogo from '../assets/GlaNewLogo.jpg';
 
 export default function Footer() {
   return (

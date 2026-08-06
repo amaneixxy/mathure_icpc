@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import mathuraBanner from '../assets/MathuraSiteBanner.jpg';
-import glaLogo from '../assets/image.png';
+import glaLogo from '../assets/GlaNewLogo.jpg';
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -176,7 +176,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '1000px' }}>
           <div style={{ marginBottom: '2rem' }}>
             <span className="registration-badge">REGISTRATION</span>
-            <h2 className="registration-main-title">Register now. Complete payment from 15 August.</h2>
+            <h2 className="registration-main-title">Register now : Complete payment from 12 August to 15 August</h2>
             <p className="registration-sub-desc">
               Complete every step using consistent participant details. All three students and the coach must be from the same institution, and every participant should use the same email address across ICPC registrations.
             </p>
@@ -244,7 +244,7 @@ export default function Home() {
 
           {/* Buttons */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="https://icpc.global" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
+            <a href="https://icpc.global/regionals/finder/mathuraprelim-2027" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
               Visit ICPC Global
             </a>
             <Link
@@ -270,7 +270,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-4" style={{ gap: '1.25rem', marginTop: '2rem' }}>
-            <a href="https://icpc.global" target="_blank" rel="noopener noreferrer" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--accent)' }}>
+            <a href="https://icpc.global/regionals/finder/mathuraprelim-2027" target="_blank" rel="noopener noreferrer" className="card-plain" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '3px solid var(--accent)' }}>
               <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>🌐</div>
               <h3 style={{ fontSize: '1.05rem', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>ICPC Global Registration</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>Official central registration platform.</p>
