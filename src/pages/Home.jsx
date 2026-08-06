@@ -41,11 +41,11 @@ export default function Home() {
                 <div className="update-card">
                   <div className="update-card-title">
                     <span className="badge-new">NEW!</span>
-                    Registration Opens
+                    Registration Opened 
                   </div>
-                  <div className="update-card-subtitle">
-                    1st Aug 2026
-                  </div>
+                  {/* <div className="update-card-subtitle">
+                    6th Aug 2026
+                  </div> */}
                 </div>
 
                 {/* Update Card 2 */}
@@ -187,11 +187,11 @@ export default function Home() {
             <div style={{ flex: '1 1 600px' }}>
               <h4 className="payment-notice-title">Do not wait for the payment window</h4>
               <p className="payment-notice-text">
-                Start your team registration now. Fee payment information will be available on this website by <strong>14 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
+                Start your team registration now. Fee payment information will be available on this website by <strong>12 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
               </p>
             </div>
             <div>
-              <Link to="/registration" className="btn-start-reg">
+              <Link to="https://icpc.global/regionals/finder/mathuraprelim-2027" className="btn-start-reg">
                 Start registration
               </Link>
             </div>
