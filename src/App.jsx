@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import ImportantDates from './pages/ImportantDates';
 import Registration from './pages/Registration';
@@ -24,6 +25,7 @@ import Sponsors from './pages/Sponsors';
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
         <main style={{ flex: '1 0 auto' }}>

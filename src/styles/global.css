@@ -2167,3 +2167,165 @@ a {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* Registration Block styles on Homepage */
+.registration-overview-section {
+  background-color: var(--card-bg);
+  padding: 3.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.registration-badge {
+  color: var(--accent-hover);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.registration-main-title {
+  color: var(--primary-navy);
+  font-size: 2.2rem !important;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: var(--font-headings);
+  line-height: 1.2;
+}
+
+.registration-sub-desc {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.payment-notice-banner {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.payment-notice-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(32, 42, 57, 0.3);
+}
+
+.payment-notice-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-headings);
+  color: #ffffff;
+}
+
+.payment-notice-text {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.95;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-start-reg {
+  background-color: var(--accent);
+  color: var(--primary-dark) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  transition: all var(--transition-normal);
+}
+
+.btn-start-reg:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 181, 102, 0.35);
+}
+
+.fee-card {
+  padding: 1.75rem 2rem;
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  background-color: rgba(63, 78, 99, 0.04);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.fee-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.fee-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-headings);
+}
+
+.fee-desc {
+  font-size: 0.95rem;
+  color: var(--muted-text);
+  margin: 0;
+}
+
+.step-block-card {
+  padding: 1.75rem;
+  border-left: 5px solid var(--secondary-accent);
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.step-block-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.step-block-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-headings);
+}
+
+.step-block-desc {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  margin: 0;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.multi-site-alert {
+  background-color: rgba(255, 181, 102, 0.08);
+  border: 1px solid rgba(255, 181, 102, 0.25);
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.multi-site-alert strong {
+  color: var(--primary-navy);
+}

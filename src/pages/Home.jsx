@@ -171,6 +171,97 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Registration Section */}
+      <section className="registration-overview-section">
+        <div className="container" style={{ maxWidth: '1000px' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span className="registration-badge">REGISTRATION</span>
+            <h2 className="registration-main-title">Register now. Complete payment from 15 August.</h2>
+            <p className="registration-sub-desc">
+              Complete every step using consistent participant details. All three students and the coach must be from the same institution, and every participant should use the same email address across ICPC registrations.
+            </p>
+          </div>
+
+          {/* Banner */}
+          <div className="payment-notice-banner">
+            <div style={{ flex: '1 1 600px' }}>
+              <h4 className="payment-notice-title">Do not wait for the payment window</h4>
+              <p className="payment-notice-text">
+                Start your team registration now. Fee payment information will be available on this website by <strong>14 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
+              </p>
+            </div>
+            <div>
+              <Link to="/registration" className="btn-start-reg">
+                Start registration
+              </Link>
+            </div>
+          </div>
+
+          {/* Fees Grid */}
+          <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div className="fee-card">
+              <h3 className="fee-amount">Rs 1,500</h3>
+              <p className="fee-desc">per team &bull; Preliminary Online Contest</p>
+            </div>
+            <div className="fee-card">
+              <h3 className="fee-amount">Rs 4,500</h3>
+              <p className="fee-desc">per qualifying team &bull; Mathura onsite round</p>
+            </div>
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="step-block-card">
+              <h4 className="step-block-title">1. Form an eligible team</h4>
+              <p className="step-block-desc">
+                Three student contestants and one coach from the same institution form the team. Review the official ICPC regional eligibility rules.
+              </p>
+            </div>
+            <div className="step-block-card">
+              <h4 className="step-block-title">2. Register on ICPC Global</h4>
+              <p className="step-block-desc">
+                The coach creates the team and invites all contestants to complete their profiles with accurate names, email addresses, and institutional information.
+              </p>
+            </div>
+            <div className="step-block-card">
+              <h4 className="step-block-title">3. Register for Mathura Site</h4>
+              <p className="step-block-desc">
+                Regional-site registration is separate. Teams seeking Mathura selection must register specifically for Mathura Site.
+              </p>
+            </div>
+            <div className="step-block-card">
+              <h4 className="step-block-title">4. Complete fee and documents</h4>
+              <p className="step-block-desc">
+                Pay the applicable team fee and submit payment proof, undertaking, and institutional verification within the official schedule.
+              </p>
+            </div>
+          </div>
+
+          {/* Warning box */}
+          <div className="multi-site-alert">
+            <strong>Registering at more than one site?</strong> Complete registration and fee payment separately for each chosen regional site. A team may participate in no more than two regional sites under ICPC Asia West rules.
+          </div>
+
+          {/* Buttons */}
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="https://icpc.global" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
+              Visit ICPC Global
+            </a>
+            <Link
+              to="/rules"
+              className="btn btn-outline-white"
+              style={{
+                border: '2px solid var(--secondary-accent)',
+                color: 'var(--secondary-accent)',
+                padding: '0.75rem 2rem',
+              }}
+            >
+              Read ICPC Regional Rules
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 3. IMPORTANT LINKS SECTION */}
       <section className="section" style={{ backgroundColor: '#ffffff', padding: '3.5rem 0', borderTop: '1px solid rgba(0,0,0,0.06)' }} id="important-links">
         <div className="container">
