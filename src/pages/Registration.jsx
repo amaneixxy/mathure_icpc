@@ -63,7 +63,7 @@ export default function Registration() {
           <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '3rem' }}>
             <div style={{ marginBottom: '2rem' }}>
               <span className="registration-badge">REGISTRATION</span>
-              <h2 className="registration-main-title">Register now : Complete payment from 15 August to 21 September</h2>
+              <h2 className="registration-main-title">Register now : Make payment from 15th August to 21st September</h2>
               <p className="registration-sub-desc">
                 Complete every step using consistent participant details. All three students and the coach must be from the same institution, and every participant should use the same email address across ICPC registrations.
               </p>
