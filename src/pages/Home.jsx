@@ -183,7 +183,7 @@ export default function Home() {
           </div>
 
           {/* Banner */}
-          <div className="payment-notice-banner">
+          {/* <div className="payment-notice-banner">
             <div style={{ flex: '1 1 600px' }}>
               <h4 className="payment-notice-title">Do not wait for the payment window</h4>
               <p className="payment-notice-text">
@@ -195,7 +195,7 @@ export default function Home() {
                 Start registration
               </Link>
             </div>
-          </div>
+          </div> */}
 
           {/* Fees Grid */}
           <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '2.5rem' }}>
