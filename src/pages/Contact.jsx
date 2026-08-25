@@ -25,9 +25,20 @@ export default function Contact() {
                 <span className="contact-info-icon" style={{ fontSize: '1.75rem' }}>👤</span>
                 <div className="contact-info-text">
                   <strong>Regional Contest Director (RCD)</strong>
-                  <p style={{ color: 'var(--text)', fontWeight: 700, fontSize: '1.05rem', margin: '0.25rem 0' }}>Dr. Rohit Agarwal</p>
+                  <p style={{ color: 'var(--text)', fontWeight: 700, fontSize: '1.05rem', margin: '0.25rem 0' }}>Prof. Anup Kumar Gupta</p>
                   <p style={{ fontSize: '0.9rem', color: 'var(--muted-text)', lineHeight: 1.5 }}>
-                    Head of the Department,<br />
+                    Vice Chancellor, GLA University, Mathura
+                  </p>
+                </div>
+              </div>
+
+              {/* Deputy RCD Contact */}
+              <div className="contact-info-item">
+                <span className="contact-info-icon" style={{ fontSize: '1.75rem' }}>👤</span>
+                <div className="contact-info-text">
+                  <strong>Deputy Regional Contest Director</strong>
+                  <p style={{ color: 'var(--text)', fontWeight: 700, fontSize: '1.05rem', margin: '0.25rem 0' }}>Prof. Rohit Agarwal</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--muted-text)', lineHeight: 1.5 }}>
                     Department of Computer Engineering and Applications,<br />
                     GLA University, Mathura- 281406, Uttar Pradesh, India
                   </p>
