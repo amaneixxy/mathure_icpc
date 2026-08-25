@@ -223,10 +223,10 @@ export default function Home() {
 
           {/* Registration Overview Block */}
           <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '3rem' }}>
-            <div style={{ marginBottom: '2rem' }}>
+            {/* <div style={{ marginBottom: '2rem' }}>
               <span className="registration-badge">REGISTRATION</span>
               <h2 className="registration-main-title">Registration and fee payment are open.</h2>
-            </div>
+            </div> */}
 
             <div style={{ margin: '3rem 0' }}>
               {REGISTRATION_OPEN ? (
