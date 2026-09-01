@@ -183,20 +183,6 @@ export default function Home() {
             <h2 className="registration-main-title">Registration and fee payment are open.</h2>
           </div>
 
-          {/* Banner */}
-          {/* <div className="payment-notice-banner">
-            <div style={{ flex: '1 1 600px' }}>
-              <h4 className="payment-notice-title">Do not wait for the payment window</h4>
-              <p className="payment-notice-text">
-                Start your team registration now. Fee payment information will be available on this website by <strong>15 August 2026</strong>. Teams that complete registration by then will also receive the payment information by email from the ICPC Mathura Site team.
-              </p>
-            </div>
-            <div>
-              <Link to="https://icpc.global/regionals/finder/mathuraprelim-2027" className="btn-start-reg">
-                Start registration
-              </Link>
-            </div>
-          </div> */}
           <div style={{ marginTop: '3rem' }}>
             <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
               ICPC Mathura 2026 Schedule
