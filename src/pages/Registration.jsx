@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import paymentQr from '../assets/payment qr.png';
 
 // Toggle this boolean flag to change the registration status of the contest site
@@ -69,10 +70,10 @@ export default function Registration() {
             <div className="important-dates-grid">
               {[
                 { label: 'Registration Starts', date: '06 August 2026', subtext: '', color: 'blue' },
-                { label: 'Registration Closes', date: '20 September 2026', subtext: '05:00 PM IST', color: 'blue' },
+                { label: 'Registration Closes', date: '25 September 2026', subtext: '05:00 PM IST', color: 'blue' },
                 { label: 'Fee Payment Starts', date: '15 August 2026', subtext: '', color: 'yellow' },
-                { label: 'Fee Payment Closes', date: '21 September 2026', subtext: '05:00 PM IST', color: 'yellow' },
-                { label: 'ICPC India Preliminary Online Contest', date: '03 October 2026', subtext: 'Contest time will be announced later', color: 'red' },
+                { label: 'Fee Payment Closes', date: '27 September 2026', subtext: '05:00 PM IST', color: 'yellow' },
+                { label: 'ICPC India Preliminary Online Contest', date: '03 October 2026', subtext: 'Saturday, 01:30 PM to 04:30 PM IST', color: 'red' },
                 { label: 'Mathura Multi-Site Onsite Contest', date: '27–28 December 2026', subtext: 'GLA University, Mathura', color: 'red' },
               ].map((item) => (
                 <div key={item.label} className={`important-dates-card ${item.color}`}>
@@ -124,6 +125,19 @@ export default function Registration() {
                     >
                       Fee Payment After Registration
                     </button>
+                    <Link
+                      to="/selection"
+                      className="btn btn-secondary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2rem',
+                        borderColor: 'var(--primary-navy)',
+                        color: 'var(--primary-navy)',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Selection Criteria
+                    </Link>
                   </div>
                   <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '1rem' }}>
                     * You will be redirected to the official ICPC registration portal.

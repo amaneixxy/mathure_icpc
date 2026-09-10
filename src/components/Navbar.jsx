@@ -20,11 +20,11 @@ export default function Navbar() {
     { label: 'Important Dates', path: '/dates' },
     { label: 'Registration', path: '/registration' },
     { label: 'Rules & Eligibility', path: '/rules' },
+    { label: 'Selection Criteria', path: '/selection' },
   ];
 
   // Secondary links grouped under "Contest Info ▾" dropdown on desktop
   const secondaryLinks = [
-    { label: 'Selection Criteria', path: '/selection' },
     { label: 'Organizing Committee', path: '/people' },
     { label: 'Sponsors', path: '/sponsors' },
     { label: 'FAQs', path: '/faq' },

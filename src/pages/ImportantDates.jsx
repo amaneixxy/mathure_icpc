@@ -7,7 +7,7 @@ export default function ImportantDates() {
       completed: false,
     },
     {
-      date: "20 September 2026",
+      date: "25 September 2026",
       title: "Registration Closes",
       description: "Final deadline to register your team for ICPC Mathura 2026.",
       completed: false,
@@ -19,7 +19,7 @@ export default function ImportantDates() {
       completed: false,
     },
     {
-      date: "21 September 2026",
+      date: "27 September 2026",
       title: "Fee Payment Closes",
       description: "Last date for confirmed ICPC Mathura teams to complete payment.",
       completed: false,
@@ -27,7 +27,7 @@ export default function ImportantDates() {
     {
       date: "03 October 2026",
       title: "Preliminary Online Contest",
-      description: "Hosted online; top teams qualify for the onsite round at GLA University, Mathura.",
+      description: "Hosted online on CodeChef (Saturday, 1:30 PM to 4:30 PM IST); top teams qualify for the onsite round at GLA University, Mathura.",
       completed: false,
     },
     {
