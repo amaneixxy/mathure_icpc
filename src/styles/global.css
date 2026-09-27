@@ -2410,3 +2410,443 @@ a {
 .multi-site-alert strong {
   color: var(--primary-navy);
 }
+
+/* Undertaking Card Section */
+.undertaking-card {
+  background-color: #fbfcfe;
+  border: 2px solid #eab308;
+  border-left: 6px solid #eab308;
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.undertaking-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.undertaking-content {
+  flex: 1;
+}
+
+.undertaking-badge {
+  display: inline-block;
+  background-color: #a82020;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.undertaking-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-headings);
+}
+
+.undertaking-desc {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.undertaking-desc a {
+  color: var(--primary-navy);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.undertaking-desc a:hover {
+  color: var(--accent-hover);
+}
+
+.undertaking-highlight {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.undertaking-action {
+  flex-shrink: 0;
+}
+
+.undertaking-btn {
+  background-color: #a32020;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 1rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(163, 32, 32, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.undertaking-btn:hover {
+  background-color: #8c1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(163, 32, 32, 0.35);
+}
+
+@media (max-width: 768px) {
+  .undertaking-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .undertaking-action {
+    width: 100%;
+  }
+
+  .undertaking-btn {
+    width: 100%;
+  }
+}
+
+/* Contest Structure Section */
+.contest-structure-section {
+  background-color: #ffffff;
+  padding: 4.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.contest-structure-header {
+  margin-bottom: 2.5rem;
+}
+
+.contest-structure-category {
+  color: #b91c1c;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-headings);
+}
+
+.contest-structure-title {
+  color: var(--primary-navy);
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-headings);
+}
+
+.contest-structure-subtitle {
+  color: #64748b;
+  font-size: 1.05rem;
+  max-width: 800px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3-Step Process Row */
+.route-steps-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.route-step-card {
+  background-color: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  flex: 1;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.04);
+  transition: all var(--transition-normal);
+}
+
+.route-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.08);
+  border-color: #93c5fd;
+}
+
+.route-step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-headings);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+}
+
+.route-step-text {
+  color: var(--primary-navy);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.route-step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #b91c1c;
+}
+
+/* Qualification Paths Block */
+.qualification-flow-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.qualification-badge {
+  display: inline-block;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #fee2e2;
+  margin-bottom: 0.85rem;
+}
+
+.qualification-heading {
+  color: #1e3a8a;
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-headings);
+  margin-bottom: 2.5rem;
+}
+
+/* Two Branch Cards */
+.qualification-branches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.branch-card {
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.branch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.branch-direct {
+  background-color: #fffefb;
+  border: 2px solid #facc15;
+}
+
+.branch-asia-west {
+  background-color: #f8faff;
+  border: 2px solid #93c5fd;
+}
+
+.branch-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.badge-direct {
+  background-color: #991b1b;
+  color: #ffffff;
+}
+
+.badge-asia-west {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.branch-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-headings);
+}
+
+.branch-desc {
+  font-size: 0.925rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tree Connector Lines */
+.tree-connector-wrapper {
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+  height: 50px;
+}
+
+/* World Finals Card */
+.world-finals-card {
+  background: linear-gradient(135deg, #1d4076 0%, #15284f 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 12px 28px rgba(21, 40, 79, 0.28);
+  text-align: center;
+}
+
+.world-finals-star-badge {
+  width: 44px;
+  height: 44px;
+  background-color: #eab308;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  box-shadow: 0 2px 10px rgba(234, 179, 8, 0.4);
+}
+
+.world-finals-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  font-family: var(--font-headings);
+  margin: 0;
+}
+
+/* Common Qualification Note */
+.common-qualification-note {
+  background-color: #fffdf5;
+  border: 1.5px solid #fde047;
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  max-width: 920px;
+  margin: 3.5rem auto 0;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.info-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #3b82f6;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: all var(--transition-fast);
+}
+
+.info-badge-btn:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contest-structure-title {
+    font-size: 1.85rem;
+  }
+
+  .route-steps-flow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .route-step-card {
+    width: 100%;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .route-step-arrow {
+    transform: rotate(90deg);
+    padding: 0.25rem 0;
+  }
+
+  .qualification-branches-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tree-connector-wrapper {
+    display: none;
+  }
+
+  .world-finals-card {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .world-finals-title {
+    font-size: 1.35rem;
+  }
+}

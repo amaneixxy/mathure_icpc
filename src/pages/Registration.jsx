@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import paymentQr from '../assets/payment qr.png';
 
-// Toggle this boolean flag to change the registration status of the contest site
-const REGISTRATION_OPEN = true;
+// Toggle these boolean flags to change the registration and payment status of the contest site
+const REGISTRATION_OPEN = false;
+const PAYMENT_OPEN = true;
 
 export default function Registration() {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -13,18 +14,32 @@ export default function Registration() {
       {/* 1. Page Header */}
       <section className="page-header">
         <div className="container">
-          <h1 style={{ color: 'var(--accent)' }}>Registration</h1>
+          <h1 style={{ color: 'var(--accent)' }}>Registration &amp; Fee Payment</h1>
           <p>ICPC Mathura 2026 — GLA University, Mathura</p>
 
-          <div className={`status-badge ${REGISTRATION_OPEN ? 'open' : 'closed'}`}>
-            <span style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: REGISTRATION_OPEN ? '#27c93f' : '#ff5f56',
-              display: 'inline-block'
-            }}></span>
-            {REGISTRATION_OPEN ? 'Registration: OPEN' : 'Registration: CLOSED'}
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1rem' }}>
+            <div className={`status-badge ${REGISTRATION_OPEN ? 'open' : 'closed'}`} style={{ marginTop: 0 }}>
+              <span style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: REGISTRATION_OPEN ? '#27c93f' : '#ff5f56',
+                display: 'inline-block'
+              }}></span>
+              {REGISTRATION_OPEN ? 'Registration: OPEN' : 'Registration: CLOSED'}
+            </div>
+            {PAYMENT_OPEN && (
+              <div className="status-badge open" style={{ marginTop: 0 }}>
+                <span style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#27c93f',
+                  display: 'inline-block'
+                }}></span>
+                Fee Payment: OPEN
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -90,8 +105,14 @@ export default function Registration() {
           {/* Registration Overview Block */}
           <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '3rem' }}>
             <div style={{ marginBottom: '2rem' }}>
-              <span className="registration-badge">REGISTRATION</span>
-              <h2 className="registration-main-title">Registration and fee payment are open.</h2>
+              <span className="registration-badge">REGISTRATION &amp; PAYMENT</span>
+              <h2 className="registration-main-title">
+                {REGISTRATION_OPEN
+                  ? 'Registration and fee payment are open.'
+                  : PAYMENT_OPEN
+                    ? 'Registration is closed. Fee payment is open.'
+                    : 'Registration and fee payment are closed.'}
+              </h2>
             </div>
 
             <div style={{ margin: '3rem 0' }}>
@@ -143,6 +164,63 @@ export default function Registration() {
                     * You will be redirected to the official ICPC registration portal.
                   </p>
                 </div>
+              ) : PAYMENT_OPEN ? (
+                <div className="card-plain text-center" style={{ borderTop: '4px solid #e3a220ff' }}>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    color: '#dc2626',
+                    padding: '0.35rem 1rem',
+                    borderRadius: '20px',
+                    fontWeight: 700,
+                    fontSize: '0.85rem',
+                    marginBottom: '1.25rem',
+                    border: '1px solid rgba(239, 68, 68, 0.25)'
+                  }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#dc2626', display: 'inline-block' }}></span>
+                    Registration Closed on 25 September 2026
+                  </div>
+                  <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.75rem', fontSize: '1.6rem' }}>
+                    Fee Payment Window is Currently Open
+                  </h3>
+                  <p className="text-muted" style={{ marginBottom: '1.75rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
+                    New team registrations are now closed. Already registered teams must complete their registration fee payment and submit payment proof before the deadline: <strong>27 September 2026 (05:00 PM IST)</strong>.
+                  </p>
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => setShowPaymentModal(true)}
+                      className="btn btn-primary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2.25rem',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        boxShadow: '0 4px 14px rgba(227, 162, 32, 0.35)'
+                      }}
+                    >
+                      Fee Payment &amp; Submission &rarr;
+                    </button>
+                    <Link
+                      to="/selection"
+                      className="btn btn-secondary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2rem',
+                        borderColor: 'var(--primary-navy)',
+                        color: 'var(--primary-navy)',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Selection Criteria
+                    </Link>
+                  </div>
+                  <p className="text-muted" style={{ fontSize: '0.825rem', marginTop: '1.25rem' }}>
+                    * Payment window closes strictly on 27 September 2026 at 05:00 PM IST.
+                  </p>
+                </div>
               ) : (
                 <div className="card-plain text-center" style={{ borderTop: '4px solid #ff5f56', opacity: 0.85 }}>
                   <h3 style={{ color: 'var(--muted-text)', marginBottom: '1rem' }}>Registration is Closed</h3>
@@ -166,36 +244,64 @@ export default function Registration() {
             </div>
 
             {/* Steps Grid */}
-            <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
               <div className="step-block-card">
                 <h4 className="step-block-title">1. Form an eligible team</h4>
                 <p className="step-block-desc">
-                  Three student contestants and one coach from the same institution form the team. Review the official ICPC regional eligibility rules.
+                  Form a team of three students and one coach from the same institution. Review the official ICPC regional eligibility rules.
                 </p>
               </div>
               <div className="step-block-card">
                 <h4 className="step-block-title">2. Register on ICPC Global</h4>
                 <p className="step-block-desc">
-                  The coach creates the team and invites all contestants to complete their profiles with accurate names, email addresses, and institutional information.
+                  The coach registers the team and all three students on the ICPC Mathura Preliminary Site.
                 </p>
               </div>
               <div className="step-block-card">
-                <h4 className="step-block-title">3. Register for Mathura Site</h4>
+                <h4 className="step-block-title">3. ICPC Global — Profile Completion by the Students</h4>
                 <p className="step-block-desc">
-                  Regional-site registration is separate. Teams seeking Mathura selection must register specifically for Mathura Site.
+                  All three students complete their ICPC profiles using their invitation emails.
                 </p>
               </div>
               <div className="step-block-card">
-                <h4 className="step-block-title">4. Complete fee and documents</h4>
+                <h4 className="step-block-title">4. Pay the fee and submit payment proof</h4>
                 <p className="step-block-desc">
-                  Pay the applicable team fee and submit payment proof, undertaking, and institutional verification within the official schedule.
+                  Pay the Mathura Preliminary fee and submit the UTR and payment proof.
                 </p>
+              </div>
+            </div>
+
+            {/* Step 5: Mandatory Undertaking Card */}
+            <div className="undertaking-card">
+              <div className="undertaking-content">
+                <span className="undertaking-badge">MANDATORY FINAL STEP</span>
+                <h3 className="undertaking-title">5. Submit one undertaking per team</h3>
+                <p className="undertaking-desc">
+                  After completing the registration and fee-payment requirements for your selected regional site(s) (including Mathura), visit{' '}
+                  <a href="https://indiaicpc.in/#undertaking" target="_blank" rel="noopener noreferrer">
+                    indiaicpc.in
+                  </a>{' '}
+                  and submit the team undertaking to complete the ICPC India Preliminary Round formalities.
+                </p>
+                <p className="undertaking-highlight">
+                  Submit a single undertaking per team. If registered for two regional sites, enter both site-specific ICPC Global Team IDs in the same submission. Do not submit a separate undertaking for each regional site.
+                </p>
+              </div>
+              <div className="undertaking-action">
+                <a
+                  href="https://indiaicpc.in/#undertaking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="undertaking-btn"
+                >
+                  Complete Undertaking Submission at India ICPC &nearr;
+                </a>
               </div>
             </div>
 
             {/* Warning box */}
             <div className="multi-site-alert" style={{ marginBottom: '3rem' }}>
-              <strong>Registering at more than one site?</strong> Complete registration and fee payment separately for each chosen regional site. A team may participate in no more than two regional sites under ICPC Asia West rules.
+              <strong>Choosing more than one regional site?</strong> Complete a separate registration and preliminary-round fee payment for each selected site. Maximum: two regional sites per team.
             </div>
           </div>
 

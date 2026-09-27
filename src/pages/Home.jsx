@@ -6,11 +6,13 @@ import mathuraBanner from '../assets/MathuraSiteBanner.jpg';
 import glaLogo from '../assets/GlaNewLogo.jpg';
 import paymentQr from '../assets/payment qr.png';
 
-const REGISTRATION_OPEN = true;
+const REGISTRATION_OPEN = false;
+const PAYMENT_OPEN = true;
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showCommonRoundModal, setShowCommonRoundModal] = useState(false);
 
   return (
     <div>
@@ -42,14 +44,19 @@ export default function Home() {
               <div className="sidebar-content">
 
                 {/* Update Card 1 */}
-                <div className="update-card">
+                <div
+                  className="update-card"
+                  onClick={() => setShowPaymentModal(true)}
+                  style={{ cursor: 'pointer' }}
+                  title="Click to view Fee Payment details"
+                >
                   <div className="update-card-title">
                     <span className="badge-new">NEW!</span>
-                    Registration Opened
+                    Fee Payment Open
                   </div>
-                  {/* <div className="update-card-subtitle">
-                    6th Aug 2026
-                  </div> */}
+                  <div className="update-card-subtitle">
+                    Closes 27th Sep 2026
+                  </div>
                 </div>
 
                 {/* Update Card 2 */}
@@ -133,13 +140,25 @@ export default function Home() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
-                  <Link to="/registration" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
-                    Register Team &rarr;
+                  <button
+                    type="button"
+                    onClick={() => setShowPaymentModal(true)}
+                    className="btn btn-primary"
+                    style={{ padding: '0.75rem 2rem', cursor: 'pointer', border: 'none' }}
+                  >
+                    Fee Payment &rarr;
+                  </button>
+                  <Link
+                    to="/registration"
+                    className="btn btn-outline-white"
+                    style={{ border: '2px solid var(--secondary-accent)', color: 'var(--secondary-accent)', padding: '0.75rem 2rem' }}
+                  >
+                    Registration Details
                   </Link>
                   <Link
                     to="/dates"
                     className="btn btn-outline-white"
-                    style={{ border: '2px solid var(--secondary-accent)', color: 'var(--secondary-accent)', padding: '0.75rem 2rem' }}
+                    style={{ border: '2px solid rgba(255,255,255,0.3)', color: '#ffffff', padding: '0.75rem 2rem' }}
                   >
                     View Schedule Dates
                   </Link>
@@ -175,12 +194,139 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contest Structure Section */}
+      <section className="contest-structure-section" id="contest-structure">
+        <div className="container" style={{ maxWidth: '1080px' }}>
+          
+          {/* Section Header */}
+          <div className="contest-structure-header">
+            <span className="contest-structure-category">CONTEST STRUCTURE</span>
+            <h2 className="contest-structure-title">
+              Your route from registration to the World Finals
+            </h2>
+            <p className="contest-structure-subtitle">
+              Every team seeking to participate at an ICPC regional site in India must qualify through the common ICPC India Preliminary Online Round.
+            </p>
+          </div>
+
+          {/* 3 Step Process Flow (Row 1) */}
+          <div className="route-steps-flow">
+            <div className="route-step-card">
+              <div className="route-step-circle">1</div>
+              <p className="route-step-text">Register your team for ICPC Mathura Preliminary Round 2026</p>
+            </div>
+
+            <div className="route-step-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+
+            <div className="route-step-card">
+              <div className="route-step-circle">2</div>
+              <p className="route-step-text">Participate in ICPC India Preliminary Online</p>
+            </div>
+
+            <div className="route-step-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+
+            <div className="route-step-card">
+              <div className="route-step-circle">3</div>
+              <p className="route-step-text">Qualify Preliminary round and Participate in Mathura Multi-Site Regional onsite</p>
+            </div>
+          </div>
+
+          {/* Qualification Routes Block (Row 2 & 3) */}
+          <div className="qualification-flow-container">
+            
+            {/* Sub-header Badge & Title */}
+            <div>
+              <span className="qualification-badge">AFTER THE MATHURA REGIONAL</span>
+              <h3 className="qualification-heading">Two routes to the World Finals</h3>
+            </div>
+
+            {/* Two Branch Cards */}
+            <div className="qualification-branches-grid">
+              
+              {/* Branch 1: Direct Qualification */}
+              <div className="branch-card branch-direct">
+                <span className="branch-badge badge-direct">DIRECT QUALIFICATION</span>
+                <h4 className="branch-title">Mathura Regional Winner</h4>
+                <p className="branch-desc">
+                  Advances directly to the ICPC World Finals. Further few top performing teams will get chance to compete in ICPC Asia West Championship
+                </p>
+              </div>
+
+              {/* Branch 2: Asia West Qualification */}
+              <div className="branch-card branch-asia-west">
+                <span className="branch-badge badge-asia-west">ASIA WEST QUALIFICATION</span>
+                <h4 className="branch-title">Top-performing teams</h4>
+                <p className="branch-desc">
+                  Compete at the ICPC Asia West Championship, where top performers also advance to the World Finals.
+                </p>
+              </div>
+            </div>
+
+            {/* SVG Tree Connector Lines */}
+            <div className="tree-connector-wrapper">
+              <svg width="100%" height="50" viewBox="0 0 920 50" fill="none" preserveAspectRatio="none" style={{ display: 'block' }}>
+                <path d="M 230 0 V 25 H 460" stroke="#f59e0b" strokeWidth="2.5" />
+                <path d="M 690 0 V 25 H 460" stroke="#3b82f6" strokeWidth="2.5" />
+                <path d="M 460 25 V 50" stroke="#f59e0b" strokeWidth="2.5" />
+              </svg>
+            </div>
+
+            {/* World Finals Target Card */}
+            <div className="world-finals-card">
+              <div className="world-finals-star-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#1e3a8a" stroke="#1e3a8a" strokeWidth="1">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h3 className="world-finals-title">ICPC World Finals 2027</h3>
+            </div>
+
+            {/* Bottom Common Qualification Alert */}
+            <div className="common-qualification-note">
+              <p>
+                <strong style={{ color: '#b45309' }}>One common qualification round for all four regional sites in India.</strong>{' '}
+                Every team wishing to participate at Kanpur, Mathura, Chennai, or Amritapuri must qualify through the jointly conducted{' '}
+                <strong style={{ color: '#b91c1c' }}>ICPC India Preliminary Online Round</strong>. A team may register for at most{' '}
+                <strong style={{ color: '#b91c1c' }}>two regional sites</strong>. Registration and the preliminary-round fee payment must be completed separately for each selected site.{' '}
+                <button
+                  type="button"
+                  onClick={() => setShowCommonRoundModal(true)}
+                  className="info-badge-btn"
+                  title="Click for information about common preliminary round"
+                  aria-label="Information about common preliminary round"
+                >
+                  i
+                </button>
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* Registration Section */}
       <section className="registration-overview-section">
         <div className="container" style={{ maxWidth: '1000px' }}>
           <div style={{ marginBottom: '2rem' }}>
-            <span className="registration-badge">REGISTRATION</span>
-            <h2 className="registration-main-title">Registration and fee payment are open.</h2>
+            <span className="registration-badge">REGISTRATION &amp; PAYMENT</span>
+            <h2 className="registration-main-title">
+              {REGISTRATION_OPEN
+                ? 'Registration and fee payment are open.'
+                : PAYMENT_OPEN
+                  ? 'Registration is closed. Fee payment is open.'
+                  : 'Registration and fee payment are closed.'}
+            </h2>
           </div>
 
           <div style={{ marginTop: '3rem' }}>
@@ -263,6 +409,63 @@ export default function Home() {
                     * You will be redirected to the official ICPC registration portal.
                   </p>
                 </div>
+              ) : PAYMENT_OPEN ? (
+                <div className="card-plain text-center" style={{ borderTop: '4px solid #e3a220ff' }}>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    color: '#dc2626',
+                    padding: '0.35rem 1rem',
+                    borderRadius: '20px',
+                    fontWeight: 700,
+                    fontSize: '0.85rem',
+                    marginBottom: '1.25rem',
+                    border: '1px solid rgba(239, 68, 68, 0.25)'
+                  }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#dc2626', display: 'inline-block' }}></span>
+                    Registration Closed on 25 September 2026
+                  </div>
+                  <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.75rem', fontSize: '1.6rem' }}>
+                    Fee Payment Window is Currently Open
+                  </h3>
+                  <p className="text-muted" style={{ marginBottom: '1.75rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
+                    New team registrations are now closed. Already registered teams must complete their registration fee payment and submit payment proof before the deadline: <strong>27 September 2026 (05:00 PM IST)</strong>.
+                  </p>
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => setShowPaymentModal(true)}
+                      className="btn btn-primary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2.25rem',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        boxShadow: '0 4px 14px rgba(227, 162, 32, 0.35)'
+                      }}
+                    >
+                      Fee Payment &amp; Submission &rarr;
+                    </button>
+                    <Link
+                      to="/selection"
+                      className="btn btn-secondary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2rem',
+                        borderColor: 'var(--primary-navy)',
+                        color: 'var(--primary-navy)',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Selection Criteria
+                    </Link>
+                  </div>
+                  <p className="text-muted" style={{ fontSize: '0.825rem', marginTop: '1.25rem' }}>
+                    * Payment window closes strictly on 27 September 2026 at 05:00 PM IST.
+                  </p>
+                </div>
               ) : (
                 <div className="card-plain text-center" style={{ borderTop: '4px solid #ff5f56', opacity: 0.85 }}>
                   <h3 style={{ color: 'var(--muted-text)', marginBottom: '1rem' }}>Registration is Closed</h3>
@@ -286,36 +489,64 @@ export default function Home() {
             </div>
 
             {/* Steps Grid */}
-            <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
               <div className="step-block-card">
                 <h4 className="step-block-title">1. Form an eligible team</h4>
                 <p className="step-block-desc">
-                  Three student contestants and one coach from the same institution form the team. Review the official ICPC regional eligibility rules.
+                  Form a team of three students and one coach from the same institution. Review the official ICPC regional eligibility rules.
                 </p>
               </div>
               <div className="step-block-card">
                 <h4 className="step-block-title">2. Register on ICPC Global</h4>
                 <p className="step-block-desc">
-                  The coach creates the team and invites all contestants to complete their profiles with accurate names, email addresses, and institutional information.
+                  The coach registers the team and all three students on the ICPC Mathura Preliminary Site.
                 </p>
               </div>
               <div className="step-block-card">
-                <h4 className="step-block-title">3. Register for Mathura Site</h4>
+                <h4 className="step-block-title">3. ICPC Global — Profile Completion by the Students</h4>
                 <p className="step-block-desc">
-                  Regional-site registration is separate. Teams seeking Mathura selection must register specifically for Mathura Site.
+                  All three students complete their ICPC profiles using their invitation emails.
                 </p>
               </div>
               <div className="step-block-card">
-                <h4 className="step-block-title">4. Complete fee and documents</h4>
+                <h4 className="step-block-title">4. Pay the fee and submit payment proof</h4>
                 <p className="step-block-desc">
-                  Pay the applicable team fee and submit payment proof, undertaking, and institutional verification within the official schedule.
+                  Pay the Mathura Preliminary fee and submit the UTR and payment proof.
                 </p>
+              </div>
+            </div>
+
+            {/* Step 5: Mandatory Undertaking Card */}
+            <div className="undertaking-card">
+              <div className="undertaking-content">
+                <span className="undertaking-badge">MANDATORY FINAL STEP</span>
+                <h3 className="undertaking-title">5. Submit one undertaking per team</h3>
+                <p className="undertaking-desc">
+                  After completing the registration and fee-payment requirements for your selected regional site(s) (including Mathura), visit{' '}
+                  <a href="https://indiaicpc.in/#undertaking" target="_blank" rel="noopener noreferrer">
+                    indiaicpc.in
+                  </a>{' '}
+                  and submit the team undertaking to complete the ICPC India Preliminary Round formalities.
+                </p>
+                <p className="undertaking-highlight">
+                  Submit a single undertaking per team. If registered for two regional sites, enter both site-specific ICPC Global Team IDs in the same submission. Do not submit a separate undertaking for each regional site.
+                </p>
+              </div>
+              <div className="undertaking-action">
+                <a
+                  href="https://indiaicpc.in/#undertaking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="undertaking-btn"
+                >
+                  Complete Undertaking Submission at India ICPC
+                </a>
               </div>
             </div>
 
             {/* Warning box */}
             <div className="multi-site-alert">
-              <strong>Registering at more than one site?</strong> Complete registration and fee payment separately for each chosen regional site. A team may participate in no more than two regional sites under ICPC Asia West rules.
+              <strong>Choosing more than one regional site?</strong> Complete a separate registration and preliminary-round fee payment for each selected site. Maximum: two regional sites per team.
             </div>
 
             {/* Buttons */}
@@ -820,6 +1051,92 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Common Preliminary Round & Regional Registrations Information Modal */}
+      {showCommonRoundModal && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(15, 23, 42, 0.65)',
+            backdropFilter: 'blur(5px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 10000,
+            padding: '1.5rem',
+          }}
+          onClick={() => setShowCommonRoundModal(false)}
+        >
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              width: '100%',
+              maxWidth: '650px',
+              padding: '2.25rem 2.5rem',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.25rem',
+              animation: 'fadeIn 0.2s ease-out',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header & Close Button */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingRight: '2rem' }}>
+              <h3
+                style={{
+                  color: 'var(--primary-navy)',
+                  fontSize: '1.3rem',
+                  fontWeight: 800,
+                  lineHeight: 1.35,
+                  margin: 0,
+                  fontFamily: 'var(--font-headings)'
+                }}
+              >
+                Common preliminary round and regional registrations
+              </h3>
+              <button
+                type="button"
+                onClick={() => setShowCommonRoundModal(false)}
+                aria-label="Close modal"
+                style={{
+                  position: 'absolute',
+                  top: '1.5rem',
+                  right: '1.5rem',
+                  backgroundColor: '#f1f5f9',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '36px',
+                  height: '36px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  color: '#64748b',
+                  fontSize: '1.25rem',
+                  fontWeight: 600,
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                &times;
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div style={{ color: '#334155', fontSize: '0.975rem', lineHeight: 1.7 }}>
+              <p style={{ margin: 0 }}>
+                The <strong>ICPC India Preliminary Online Round</strong> is jointly conducted by the Mathura, Kanpur, Chennai, and Amritapuri regional sites as the common qualification contest. Every team wishing to participate at any of these sites must qualify through this round. A team may register for at most <strong>two regional sites</strong> and must complete the registration and preliminary-round fee payment separately for each selected site. Each regional site prepares its own selection result from the teams registered for that site.
+              </p>
             </div>
           </div>
         </div>

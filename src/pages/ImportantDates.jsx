@@ -4,19 +4,19 @@ export default function ImportantDates() {
       date: "06 August 2026",
       title: "Registration Starts",
       description: "Teams register on ICPC Global and begin the ICPC Mathura site confirmation process.",
-      completed: false,
+      completed: true,
     },
     {
       date: "25 September 2026",
       title: "Registration Closes",
       description: "Final deadline to register your team for ICPC Mathura 2026.",
-      completed: false,
+      completed: true,
     },
     {
       date: "15 August 2026",
       title: "Fee Payment Starts",
       description: "Confirmed teams may begin submitting payment for ICPC Mathura 2026.",
-      completed: false,
+      completed: true,
     },
     {
       date: "27 September 2026",
