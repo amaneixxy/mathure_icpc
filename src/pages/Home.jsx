@@ -7,7 +7,7 @@ import glaLogo from '../assets/GlaNewLogo.jpg';
 import paymentQr from '../assets/payment qr.png';
 
 const REGISTRATION_OPEN = false;
-const PAYMENT_OPEN = true;
+const PAYMENT_OPEN = false;
 
 export default function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -47,15 +47,15 @@ export default function Home() {
                 <div
                   className="update-card"
                   onClick={() => setShowPaymentModal(true)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', opacity: 0.8 }}
                   title="Click to view Fee Payment details"
                 >
                   <div className="update-card-title">
-                    <span className="badge-new">NEW!</span>
-                    Fee Payment Open
+                    <span className="badge-new" style={{ backgroundColor: '#dc2626' }}>CLOSED</span>
+                    Fee Payment Closed
                   </div>
                   <div className="update-card-subtitle">
-                    Closes 27th Sep 2026
+                    Closed 27th Sep 2026
                   </div>
                 </div>
 
@@ -142,9 +142,9 @@ export default function Home() {
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
                   <button
                     type="button"
-                    onClick={() => setShowPaymentModal(true)}
+                    disabled
                     className="btn btn-primary"
-                    style={{ padding: '0.75rem 2rem', cursor: 'pointer', border: 'none' }}
+                    style={{ padding: '0.75rem 2rem', cursor: 'not-allowed', border: 'none', backgroundColor: '#9ca3af', opacity: 0.7 }}
                   >
                     Fee Payment &rarr;
                   </button>
@@ -430,20 +430,43 @@ export default function Home() {
                   <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.75rem', fontSize: '1.6rem' }}>
                     Fee Payment Window is Currently Open
                   </h3>
-                  <p className="text-muted" style={{ marginBottom: '1.75rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
+                  <p className="text-muted" style={{ marginBottom: '1.5rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
                     New team registrations are now closed. Already registered teams must complete their registration fee payment and submit payment proof before the deadline: <strong>27 September 2026 (05:00 PM IST)</strong>.
                   </p>
+                  
+                  {/* Late Submission Approval Notice */}
+                  <div style={{
+                    backgroundColor: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderLeft: '4px solid #2563eb',
+                    borderRadius: '8px',
+                    padding: '1rem 1.25rem',
+                    marginBottom: '1.5rem',
+                    maxWidth: '680px',
+                    marginInline: 'auto',
+                    textAlign: 'left',
+                    fontSize: '0.925rem',
+                    color: '#1e40af',
+                    lineHeight: 1.55
+                  }}>
+                    <strong>Important Note:</strong> Teams that submit the Google Form with their payment details after 4:00 PM on 27 sep 2026 will be approved on 1st October, after verification of the payment details.
+                  </div>
+
                   <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                     <button
                       type="button"
-                      onClick={() => setShowPaymentModal(true)}
+                      disabled
                       className="btn btn-primary"
                       style={{
                         display: 'inline-flex',
                         padding: '0.85rem 2.25rem',
-                        cursor: 'pointer',
+                        cursor: 'not-allowed',
                         fontSize: '1rem',
-                        boxShadow: '0 4px 14px rgba(227, 162, 32, 0.35)'
+                        backgroundColor: '#9ca3af',
+                        borderColor: '#9ca3af',
+                        color: '#ffffff',
+                        opacity: 0.7,
+                        boxShadow: 'none'
                       }}
                     >
                       Fee Payment &amp; Submission &rarr;
@@ -467,11 +490,97 @@ export default function Home() {
                   </p>
                 </div>
               ) : (
-                <div className="card-plain text-center" style={{ borderTop: '4px solid #ff5f56', opacity: 0.85 }}>
-                  <h3 style={{ color: 'var(--muted-text)', marginBottom: '1rem' }}>Registration is Closed</h3>
-                  <p className="text-muted" style={{ marginBottom: '0.5rem', maxWidth: '600px', marginInline: 'auto' }}>
-                    Registration for the ICPC Mathura 2026 Contest is now closed. Stay tuned for future announcements and next year&apos;s cycle.
+                <div className="card-plain text-center" style={{ borderTop: '4px solid #ff5f56' }}>
+                  <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#dc2626',
+                      padding: '0.35rem 1rem',
+                      borderRadius: '20px',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      border: '1px solid rgba(239, 68, 68, 0.25)'
+                    }}>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#dc2626', display: 'inline-block' }}></span>
+                      Registration Closed on 25 September 2026
+                    </div>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#dc2626',
+                      padding: '0.35rem 1rem',
+                      borderRadius: '20px',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      border: '1px solid rgba(239, 68, 68, 0.25)'
+                    }}>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#dc2626', display: 'inline-block' }}></span>
+                      Fee Payment Closed on 27 September 2026 (05:00 PM IST)
+                    </div>
+                  </div>
+                  <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.75rem', fontSize: '1.6rem' }}>
+                    Registration &amp; Fee Payment are Closed
+                  </h3>
+                  <p className="text-muted" style={{ marginBottom: '1.5rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
+                    New team registrations and fee payment submissions for ICPC Mathura 2026 are now closed.
                   </p>
+
+                  {/* Late Submission Approval Notice */}
+                  <div style={{
+                    backgroundColor: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderLeft: '4px solid #2563eb',
+                    borderRadius: '8px',
+                    padding: '1rem 1.25rem',
+                    marginBottom: '1.5rem',
+                    maxWidth: '680px',
+                    marginInline: 'auto',
+                    textAlign: 'left',
+                    fontSize: '0.925rem',
+                    color: '#1e40af',
+                    lineHeight: 1.55
+                  }}>
+                    <strong>Important Note:</strong> Teams that submit the Google Form with their payment details after 4:00 PM on 27 sep 2026 will be approved on 1st October, after verification of the payment details.
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      disabled
+                      className="btn btn-primary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2.25rem',
+                        cursor: 'not-allowed',
+                        fontSize: '1rem',
+                        backgroundColor: '#9ca3af',
+                        borderColor: '#9ca3af',
+                        color: '#ffffff',
+                        opacity: 0.7,
+                        boxShadow: 'none'
+                      }}
+                    >
+                      Fee Payment Closed
+                    </button>
+                    <Link
+                      to="/selection"
+                      className="btn btn-secondary"
+                      style={{
+                        display: 'inline-flex',
+                        padding: '0.85rem 2rem',
+                        borderColor: 'var(--primary-navy)',
+                        color: 'var(--primary-navy)',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Selection Criteria
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -917,7 +1026,21 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Required Banner */}
+            {/* Required Banner & Late Submission Note */}
+            <div
+              style={{
+                backgroundColor: '#eff6ff',
+                borderLeft: '4px solid #2563eb',
+                borderRadius: '8px',
+                padding: '1.25rem',
+                fontSize: '0.95rem',
+                color: '#1e40af',
+                lineHeight: 1.5
+              }}
+            >
+              <strong>Important Note:</strong> Teams that submit the Google Form with their payment details after 4:00 PM on 27 sep 2026 will be approved on 1st October, after verification of the payment details.
+            </div>
+
             <div
               style={{
                 backgroundColor: '#fffbeb',

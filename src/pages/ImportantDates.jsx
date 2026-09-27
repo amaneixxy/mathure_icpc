@@ -22,7 +22,7 @@ export default function ImportantDates() {
       date: "27 September 2026",
       title: "Fee Payment Closes",
       description: "Last date for confirmed ICPC Mathura teams to complete payment.",
-      completed: false,
+      completed: true,
     },
     {
       date: "03 October 2026",
