@@ -28,6 +28,24 @@ export default function ImportantDates() {
       date: "03 October 2026",
       title: "Preliminary Online Contest",
       description: "Hosted online on CodeChef (Saturday, 1:30 PM to 4:30 PM IST); top teams qualify for the onsite round at GLA University, Mathura.",
+      completed: true,
+    },
+    {
+      date: "03 November 2026",
+      title: "Selected Teams & Waiting List Published",
+      description: "The list of 100 selected teams and the 12-team waiting list for the Mathura onsite round is officially declared.",
+      completed: true,
+    },
+    {
+      date: "05 November 2026",
+      title: "Email Notification to Selected Teams",
+      description: "Official emails sent to selected teams containing fee payment link, registration form link, and centre allotment details (by 10:00 PM IST).",
+      completed: false,
+    },
+    {
+      date: "16 November 2026",
+      title: "Onsite Registration & Fee Payment Deadline",
+      description: "Mandatory deadline for selected teams to complete both fee payment and the onsite registration form (by 5:00 PM IST).",
       completed: false,
     },
     {

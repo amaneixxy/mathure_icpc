@@ -1,249 +1,355 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ranklistData } from '../data/ranklist';
-
-const IS_AVAILABLE = false;
+import { useState, useMemo } from 'react';
+import { selectedTeams, waitingList } from '../data/selectedTeamsData';
 
 export default function Ranklist() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('rank'); // 'rank', 'solved', 'penalty'
-  const [sortOrder, setSortOrder] = useState('asc'); // 'asc', 'desc'
+  const [searchSelected, setSearchSelected] = useState('');
+  const [quotaFilter, setQuotaFilter] = useState('all'); // 'all', 'General', 'Female'
+  const [searchWaiting, setSearchWaiting] = useState('');
 
-  const handleSort = (field) => {
-    if (sortBy === field) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortBy(field);
-      // 'solved' is best sorted high-to-low by default (desc)
-      // 'rank' and 'penalty' are best sorted low-to-high by default (asc)
-      setSortOrder(field === 'solved' ? 'desc' : 'asc');
+  // Summary counts
+  const totalSelected = selectedTeams.length;
+  const generalSelected = selectedTeams.filter((t) => t.quota === 'General').length;
+  const womenSelected = selectedTeams.filter((t) => t.quota === 'Female').length;
+  const totalWaiting = waitingList.length;
+
+  // Filter selected teams
+  const filteredSelectedTeams = useMemo(() => {
+    const q = searchSelected.trim().toLowerCase();
+    return selectedTeams.filter((team) => {
+      const matchesSearch =
+        !q ||
+        team.teamName.toLowerCase().includes(q) ||
+        team.institute.toLowerCase().includes(q) ||
+        team.teamId.toLowerCase().includes(q);
+
+      const matchesQuota =
+        quotaFilter === 'all' ||
+        (quotaFilter === 'General' && team.quota === 'General') ||
+        (quotaFilter === 'Female' && team.quota === 'Female');
+
+      return matchesSearch && matchesQuota;
+    });
+  }, [searchSelected, quotaFilter]);
+
+  // Filter waiting list
+  const filteredWaitingList = useMemo(() => {
+    const q = searchWaiting.trim().toLowerCase();
+    return waitingList.filter((team) => {
+      return (
+        !q ||
+        team.teamName.toLowerCase().includes(q) ||
+        team.institute.toLowerCase().includes(q) ||
+        team.teamId.toLowerCase().includes(q)
+      );
+    });
+  }, [searchWaiting]);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
-
-  // 1. Filter data based on search input
-  const filteredData = ranklistData.filter((team) => {
-    const query = searchQuery.toLowerCase();
-    return (
-      team.name.toLowerCase().includes(query) ||
-      team.institution.toLowerCase().includes(query)
-    );
-  });
-
-  // 2. Sort filtered data
-  const sortedData = [...filteredData].sort((a, b) => {
-    let valueA = a[sortBy];
-    let valueB = b[sortBy];
-
-    if (sortBy === 'award') {
-      valueA = a.award || '';
-      valueB = b.award || '';
-    }
-
-    if (valueA < valueB) return sortOrder === 'asc' ? -1 : 1;
-    if (valueA > valueB) return sortOrder === 'asc' ? 1 : -1;
-    return 0;
-  });
-
-  const getAwardBadge = (award) => {
-    if (!award) return null;
-    if (award.includes('Gold')) return <span className="award-badge gold">{award}</span>;
-    if (award.includes('Silver')) return <span className="award-badge silver">{award}</span>;
-    if (award.includes('Bronze')) return <span className="award-badge bronze">{award}</span>;
-    return <span className="award-badge mention">{award}</span>;
-  };
-
-  const getSortIndicator = (field) => {
-    if (sortBy !== field) return " ↕";
-    return sortOrder === 'asc' ? " ▲" : " ▼";
   };
 
   return (
-    <div>
-      {/* 1. Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-            <span style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 0 8px rgba(255,181,102,0.5))' }}>🏆</span>
-            <h1>Official Ranklist</h1>
+    <div className="ranklist-page-wrapper">
+      {/* Top Container */}
+      <div className="container" style={{ maxWidth: '1100px', paddingTop: '2.5rem', paddingBottom: '4rem' }}>
+        
+        {/* ========================================================
+            1. Dark Hero Banner (Matches Image 2 Top Section)
+           ======================================================== */}
+        <div className="ranklist-hero-card">
+          {/* Right edge colored stripes (ICPC colors) */}
+          <div className="ranklist-hero-stripes" aria-hidden="true">
+            <span className="stripe-blue"></span>
+            <span className="stripe-yellow"></span>
+            <span className="stripe-red"></span>
           </div>
-          <p>ICPC Mathura 2026 — GLA University, Mathura</p>
-        </div>
-      </section>
 
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="container" style={{ maxWidth: '1000px' }}>
+          <div className="ranklist-hero-content">
+            <div className="ranklist-hero-kicker">ICPC MATHURA REGIONAL 2026</div>
+            <h1 className="ranklist-hero-title">
+              Selected Teams for the Mathura Onsite Contest
+            </h1>
+            <p className="ranklist-hero-subtitle">
+              <strong>{totalSelected} selected teams:</strong> {generalSelected} General quota and {womenSelected} All Women quota.
+            </p>
+            <p className="ranklist-hero-note">
+              Serial numbers indicate display order, not contest standing.
+            </p>
 
-          {/* Onsite Teams List Status Callout */}
-          <div className="notes-box" style={{ borderLeftColor: 'var(--accent)', marginTop: 0, marginBottom: '2rem' }}>
-            <span style={{ fontSize: '1.5rem' }}>👥</span>
-            <div>
-              <strong>Onsite Teams List:</strong> The official list of selected teams for the onsite round is <strong>Coming Soon</strong>! You will be able to search and view the confirmed team listings on the <Link to="/onsite-teams" style={{ color: 'var(--accent-hover)', fontWeight: 600 }}>Onsite Teams</Link> page.
+            {/* Quick Jump Buttons to Sections on Page */}
+            <div className="ranklist-tabs-group">
+              <button
+                type="button"
+                className="ranklist-tab-btn active"
+                onClick={() => scrollToSection('selected-teams')}
+              >
+                Selected teams ({totalSelected}) ↓
+              </button>
+              <button
+                type="button"
+                className="ranklist-tab-btn"
+                onClick={() => scrollToSection('waiting-list')}
+              >
+                Waiting list ({totalWaiting}) ↓
+              </button>
             </div>
           </div>
+        </div>
 
-          {IS_AVAILABLE ? (
-            <>
-              {/* 2. Champion Highlight Card */}
-              <div className="champion-card">
-                <div className="champion-title">🏆 Mathura Site Champion 2026</div>
-                <div className="champion-team">[TBD]</div>
-                <div className="champion-institution">Institution: [TBD]</div>
-                <div className="champion-badge">Advancing to ICPC Asia West Continent Championship</div>
-              </div>
+        {/* ========================================================
+            2. Next Steps For Selected Teams (Matches Image 2 Bottom)
+           ======================================================== */}
+        <div className="next-steps-card">
+          <h2 className="next-steps-heading">Next steps for selected teams</h2>
 
-              <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
-                Standings Table
-              </h2>
-
-              {/* 3. Filter Bar */}
-              <div className="filter-bar">
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search by team name or institution..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-
-              {/* Ranklist Table */}
-              <div className="table-responsive">
-                <table className="schedule-table">
-                  <thead>
-                    <tr>
-                      <th
-                        className="sortable-th"
-                        style={{ width: '12%' }}
-                        onClick={() => handleSort('rank')}
-                      >
-                        Rank {getSortIndicator('rank')}
-                      </th>
-                      <th
-                        className="sortable-th"
-                        style={{ width: '28%' }}
-                        onClick={() => handleSort('name')}
-                      >
-                        Team Name {getSortIndicator('name')}
-                      </th>
-                      <th
-                        className="sortable-th"
-                        style={{ width: '30%' }}
-                        onClick={() => handleSort('institution')}
-                      >
-                        Institution {getSortIndicator('institution')}
-                      </th>
-                      <th
-                        className="sortable-th"
-                        style={{ width: '15%', textAlign: 'center' }}
-                        onClick={() => handleSort('solved')}
-                      >
-                        Solved {getSortIndicator('solved')}
-                      </th>
-                      <th
-                        className="sortable-th"
-                        style={{ width: '15%', textAlign: 'center' }}
-                        onClick={() => handleSort('penalty')}
-                      >
-                        Penalty {getSortIndicator('penalty')}
-                      </th>
-                      <th style={{ width: '20%' }}>Award</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sortedData.length > 0 ? (
-                      sortedData.map((team) => (
-                        <tr key={team.rank}>
-                          <td className="font-mono font-bold">{team.rank}</td>
-                          <td className="font-bold" style={{ color: 'var(--primary-navy)' }}>{team.name}</td>
-                          <td>{team.institution}</td>
-                          <td className="font-mono font-bold" style={{ textAlign: 'center' }}>{team.solved}</td>
-                          <td className="font-mono" style={{ textAlign: 'center', color: 'var(--muted-text)' }}>{team.penalty}</td>
-                          <td>{getAwardBadge(team.award)}</td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan="6" style={{ textAlign: 'center', padding: '2rem', color: 'var(--muted-text)' }}>
-                          No matching teams found. Try another search query.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* 4. Download PDF Action */}
-              <div className="text-center" style={{ margin: '2rem 0 4rem 0' }}>
-                <a
-                  href="/ranklist2026.pdf"
-                  onClick={(e) => e.preventDefault()}
-                  className="btn btn-primary"
-                  style={{ display: 'inline-flex', gap: '0.5rem' }}
-                >
-                  <span>📥</span> Download Official Ranklist (PDF)
-                </a>
-              </div>
-            </>
-          ) : (
-            <div className="card-plain text-center" style={{ padding: '3.5rem 2.5rem', marginBottom: '3rem' }}>
-              <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>⏳</span>
-              <h3 style={{ color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>No Ranklist Available</h3>
-              <p className="text-muted" style={{ maxWidth: '600px', marginInline: 'auto' }}>
-                The official ranklist for the ICPC Mathura 2026 contest is not available right now. Please check back later.
+          <div className="next-steps-grid">
+            {/* Step 1 Box */}
+            <div className="next-step-box step-box-email">
+              <div className="next-step-label">01 · LOOK OUT FOR YOUR EMAIL</div>
+              <div className="next-step-date-title">By 5 November 2026</div>
+              <div className="next-step-time">10:00 PM IST</div>
+              <p className="next-step-text">
+                Selected teams will receive an email containing the <strong>fee-payment link</strong>, <strong>onsite registration form link</strong>, and <strong>details of their allotted centre</strong>.
               </p>
             </div>
-          )}
 
-          {/* 5. Past Results Section */}
-          {/* <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '3rem' }}>
-            <h2 className="section-title" style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}>
-              Previous Years Results
-            </h2>
-
-            <div className="past-results-grid">
-              <div className="past-result-card">
-                <div>
-                  <div className="past-year">2024</div>
-                  <div className="past-champion">🏆 Champion: CtrlAltDefeat</div>
-                  <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem' }}>
-                    Institution: IIT Kanpur
-                  </p>
-                </div>
-                <Link to="/results/2024" className="btn btn-outline-white" style={{ border: '1.5px solid var(--secondary-accent)', color: 'var(--secondary-accent)', fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-                  View Results &rarr;
-                </Link>
-              </div>
-
-              <div className="past-result-card">
-                <div>
-                  <div className="past-year">2023</div>
-                  <div className="past-champion">🏆 Champion: TemplateMagic</div>
-                  <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem' }}>
-                    Institution: IIT Roorkee
-                  </p>
-                </div>
-                <Link to="/results/2023" className="btn btn-outline-white" style={{ border: '1.5px solid var(--secondary-accent)', color: 'var(--secondary-accent)', fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-                  View Results &rarr;
-                </Link>
-              </div>
-
-              <div className="past-result-card">
-                <div>
-                  <div className="past-year">2022</div>
-                  <div className="past-champion">🏆 Champion: O(1)Dream</div>
-                  <p className="text-muted" style={{ fontSize: '0.85rem', marginBottom: '1.25rem' }}>
-                    Institution: IIT Bombay
-                  </p>
-                </div>
-                <Link to="/results/2022" className="btn btn-outline-white" style={{ border: '1.5px solid var(--secondary-accent)', color: 'var(--secondary-accent)', fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-                  View Results &rarr;
-                </Link>
-              </div>
+            {/* Step 2 Box */}
+            <div className="next-step-box step-box-onsite">
+              <div className="next-step-label">02 · COMPLETE BOTH FORMALITIES</div>
+              <div className="next-step-date-title">By 16 November 2026</div>
+              <div className="next-step-time">5:00 PM IST</div>
+              <p className="next-step-text">
+                Teams must <strong>complete the fee payment</strong> and <strong>submit the onsite registration form</strong> by this deadline.
+              </p>
             </div>
-          </div> */}
+          </div>
 
+          {/* Warning / Important Callout */}
+          <div className="next-step-alert">
+            <strong>Important:</strong> Both the fee payment and registration form submission are mandatory. Teams failing to complete either of these requirements within the deadline will forfeit their slot, which will be offered to the next eligible team on the waiting list.
+          </div>
         </div>
-      </section>
+
+        {/* ========================================================
+            3. SECTION 1: SELECTED TEAMS TABLE (Matches Image 3)
+           ======================================================== */}
+        <section id="selected-teams" className="tab-pane-section" style={{ scrollMarginTop: '2rem' }}>
+          <div className="table-section-header">
+            <h2 className="table-section-title">Selected Teams</h2>
+            <p className="table-section-subtitle">
+              Scroll horizontally on smaller screens to view all columns.
+            </p>
+          </div>
+
+          {/* Search & Filter Toolbar */}
+          <div className="ranklist-toolbar">
+            <div className="ranklist-search-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                className="ranklist-search-input"
+                placeholder="Search selected teams by name, ID, or institute..."
+                value={searchSelected}
+                onChange={(e) => setSearchSelected(e.target.value)}
+              />
+              {searchSelected && (
+                <button
+                  type="button"
+                  onClick={() => setSearchSelected('')}
+                  className="ranklist-search-clear"
+                  title="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            {/* Filter chips */}
+            <div className="ranklist-filter-chips">
+              <button
+                type="button"
+                className={`filter-chip ${quotaFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setQuotaFilter('all')}
+              >
+                All ({totalSelected})
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${quotaFilter === 'General' ? 'active' : ''}`}
+                onClick={() => setQuotaFilter('General')}
+              >
+                General ({generalSelected})
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${quotaFilter === 'Female' ? 'active' : ''}`}
+                onClick={() => setQuotaFilter('Female')}
+              >
+                All Women ({womenSelected})
+              </button>
+            </div>
+          </div>
+
+          {/* Card Containing the Table */}
+          <div className="ranklist-table-card">
+            <div className="table-card-topbar">
+              <span>Selected teams, sorted alphabetically by institute name</span>
+              <span className="table-count-badge">
+                Showing {filteredSelectedTeams.length} of {totalSelected} teams
+              </span>
+            </div>
+
+            <div className="table-responsive">
+              <table className="ranklist-table">
+                <thead>
+                  <tr>
+                    <th style={{ width: '8%', textAlign: 'center' }}>Sl No</th>
+                    <th style={{ width: '28%' }}>Team Name</th>
+                    <th style={{ width: '16%' }}>Team ID</th>
+                    <th style={{ width: '33%' }}>Institute Name</th>
+                    <th style={{ width: '15%', textAlign: 'center' }}>Selection Quota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredSelectedTeams.length > 0 ? (
+                    filteredSelectedTeams.map((team) => (
+                      <tr key={team.serialNo}>
+                        <td className="col-sl-no">{team.serialNo}</td>
+                        <td className="col-team-name">{team.teamName}</td>
+                        <td className="col-team-id">{team.teamId}</td>
+                        <td className="col-institute">{team.institute}</td>
+                        <td style={{ textAlign: 'center' }}>
+                          {team.quota === 'Female' ? (
+                            <span className="quota-pill quota-female" title="All Women Quota">
+                              All Women
+                            </span>
+                          ) : (
+                            <span className="quota-pill quota-general">
+                              General
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="table-empty-message">
+                        No matching teams found. Try adjusting your search query or filter.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Visual Section Divider */}
+        <div style={{ margin: '4rem 0 3rem 0', borderTop: '2px dashed #cbd5e1' }} />
+
+        {/* ========================================================
+            4. SECTION 2: WAITING LIST TABLE (Matches Image 4)
+           ======================================================== */}
+        <section id="waiting-list" className="tab-pane-section" style={{ scrollMarginTop: '2rem' }}>
+          <div className="table-section-header">
+            <h2 className="table-section-title">
+              Waiting List — {totalWaiting} Teams
+            </h2>
+          </div>
+
+          {/* Yellow Warning Callout (Matches Image 4) */}
+          <div className="waiting-warning-callout">
+            The waiting list is shown in waiting-list priority order, not institute-name order. Inclusion in this list does not confirm selection.
+          </div>
+
+          {/* Search Toolbar */}
+          <div className="ranklist-toolbar">
+            <div className="ranklist-search-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                className="ranklist-search-input"
+                placeholder="Search waiting list by team, ID, or institute..."
+                value={searchWaiting}
+                onChange={(e) => setSearchWaiting(e.target.value)}
+              />
+              {searchWaiting && (
+                <button
+                  type="button"
+                  onClick={() => setSearchWaiting('')}
+                  className="ranklist-search-clear"
+                  title="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Card Containing the Table */}
+          <div className="ranklist-table-card">
+            <div className="table-card-topbar">
+              <span>Waiting list, in priority order</span>
+              <span className="table-count-badge">
+                Showing {filteredWaitingList.length} of {totalWaiting} teams
+              </span>
+            </div>
+
+            <div className="table-responsive">
+              <table className="ranklist-table">
+                <thead>
+                  <tr>
+                    <th style={{ width: '16%', textAlign: 'center' }}>Waiting List No.</th>
+                    <th style={{ width: '26%' }}>Team Name</th>
+                    <th style={{ width: '16%' }}>Team ID</th>
+                    <th style={{ width: '27%' }}>Institute Name</th>
+                    <th style={{ width: '15%', textAlign: 'center' }}>Selection Quota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredWaitingList.length > 0 ? (
+                    filteredWaitingList.map((team) => (
+                      <tr key={team.serialNo}>
+                        <td className="col-sl-no">{team.serialNo}</td>
+                        <td className="col-team-name">{team.teamName}</td>
+                        <td className="col-team-id">{team.teamId}</td>
+                        <td className="col-institute">{team.institute}</td>
+                        <td style={{ textAlign: 'center' }}>
+                          {team.quota === 'Female' ? (
+                            <span className="quota-pill quota-female" title="All Women Quota">
+                              All Women
+                            </span>
+                          ) : (
+                            <span className="quota-pill quota-general">
+                              General
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="table-empty-message">
+                        No matching teams found in the waiting list.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }

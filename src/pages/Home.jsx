@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PublishedAnnouncement from '../components/PublishedAnnouncement';
 import jetbrainsLogo from '../assets/jetbrainslogo.jpg';
 import janestreetLogo from '../assets/JaneStreetLogo.png';
 import mathuraBanner from '../assets/MathuraSiteBanner.jpg';
@@ -42,6 +43,26 @@ export default function Home() {
               </div>
 
               <div className="sidebar-content">
+
+                {/* Update Card: Selected Teams & Waiting List */}
+                <Link to="/ranklist" style={{ textDecoration: 'none' }}>
+                  <div
+                    className="update-card"
+                    style={{
+                      borderLeft: '4px solid #2563eb',
+                      backgroundColor: 'rgba(37, 99, 235, 0.05)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <div className="update-card-title" style={{ color: '#1e3a8a' }}>
+                      <span className="badge-new" style={{ backgroundColor: '#2563eb' }}>PUBLISHED</span>
+                      Selected Teams &amp; Waiting List
+                    </div>
+                    <div className="update-card-subtitle" style={{ color: '#2563eb', fontWeight: 600 }}>
+                      100 Selected · 12 Waiting
+                    </div>
+                  </div>
+                </Link>
 
                 {/* Update Card 1 */}
                 <div
@@ -110,6 +131,9 @@ export default function Home() {
 
             {/* Right Column: Main Content */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+
+              {/* Published Announcement (Matches Image 1) */}
+              <PublishedAnnouncement />
 
               {/* Welcome Card */}
               <div className="card-plain" style={{ borderTop: '4px solid var(--accent)', padding: '2.5rem' }}>

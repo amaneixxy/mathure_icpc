@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: 'Registration', path: '/registration' },
     { label: 'Rules & Eligibility', path: '/rules' },
     { label: 'Selection Criteria', path: '/selection' },
+    { label: 'Ranklist', path: '/ranklist' },
   ];
 
   // Secondary links grouped under "Contest Info ▾" dropdown on desktop
@@ -33,7 +34,6 @@ export default function Navbar() {
     { label: 'Program Schedule', path: '/schedule' },
     { label: 'How to Reach', path: '/how-to-reach' },
     { label: 'Onsite Teams', path: '/onsite-teams' },
-    { label: 'Official Ranklist', path: '/ranklist' },
   ];
 
   // Flattened links list for mobile view

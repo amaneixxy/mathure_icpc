@@ -2850,3 +2850,640 @@ a {
     font-size: 1.35rem;
   }
 }
+
+
+/* ========================================================
+   Selected Teams & Waiting List Published Component
+   (Homepage Announcement Card - Matches Image 1)
+   ======================================================== */
+.published-announcement-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.published-kicker {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1d4ed8;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.published-title {
+  font-family: var(--font-body);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.published-desc {
+  font-size: 0.975rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.btn-published-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #133b70;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(19, 59, 112, 0.2);
+}
+
+.btn-published-cta:hover {
+  background-color: #0d284d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(19, 59, 112, 0.3);
+}
+
+.published-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .published-steps-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.published-step-box {
+  border-radius: 10px;
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.published-step-box.step-box-email {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-top: 3.5px solid #2563eb;
+}
+
+.published-step-box.step-box-onsite {
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+  border-top: 3.5px solid #eab308;
+}
+
+.step-box-header {
+  margin-bottom: 0.35rem;
+}
+
+.step-box-label {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.step-box-deadline {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.step-box-intro {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.step-box-list {
+  padding-left: 1.2rem;
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.step-box-note {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-top: auto;
+  text-align: left;
+}
+
+.published-alert-callout {
+  background-color: #fef2f2;
+  border-left: 4px solid #dc2626;
+  border-radius: 4px;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.875rem;
+  color: #7f1d1d;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.published-alert-callout strong {
+  color: #991b1b;
+}
+
+/* ========================================================
+   Ranklist & Selected Teams Page Styles
+   (Matches Images 2, 3, 4)
+   ======================================================== */
+.ranklist-page-wrapper {
+  background-color: var(--background);
+  min-height: 80vh;
+}
+
+/* 1. Hero Card (Image 2 Top) */
+.ranklist-hero-card {
+  background: linear-gradient(135deg, #0e223d 0%, #0a182d 100%);
+  border-radius: 14px;
+  padding: 2.25rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(10, 24, 45, 0.3);
+  margin-bottom: 2rem;
+}
+
+.ranklist-hero-stripes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  width: 15px;
+}
+
+.ranklist-hero-stripes .stripe-blue {
+  width: 5px;
+  height: 100%;
+  background-color: #2563eb;
+}
+
+.ranklist-hero-stripes .stripe-yellow {
+  width: 5px;
+  height: 100%;
+  background-color: #eab308;
+}
+
+.ranklist-hero-stripes .stripe-red {
+  width: 5px;
+  height: 100%;
+  background-color: #dc2626;
+}
+
+.ranklist-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.ranklist-hero-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #60a5fa;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.ranklist-hero-title {
+  font-family: var(--font-body);
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+
+.ranklist-hero-subtitle {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.ranklist-hero-note {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.ranklist-tabs-group {
+  display: inline-flex;
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 0.35rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ranklist-tab-btn {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding: 0.55rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: #ffffff;
+}
+
+.ranklist-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ranklist-tab-btn.active {
+  background: #ffffff;
+  color: #0e223d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Next Steps Card (Image 2 Bottom) */
+.next-steps-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+  margin-bottom: 2.5rem;
+}
+
+.next-steps-heading {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+}
+
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .next-steps-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.next-step-box {
+  border-radius: 10px;
+  padding: 1.25rem 1.35rem;
+}
+
+.next-step-box.step-box-email {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-top: 3.5px solid #2563eb;
+}
+
+.next-step-box.step-box-onsite {
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+  border-top: 3.5px solid #eab308;
+}
+
+.next-step-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.next-step-box.step-box-email .next-step-label {
+  color: #1d4ed8;
+}
+
+.next-step-box.step-box-onsite .next-step-label {
+  color: #b45309;
+}
+
+.next-step-date-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.next-step-time {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.next-step-text {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.next-step-alert {
+  background-color: #fef2f2;
+  border-left: 4px solid #dc2626;
+  border-radius: 4px;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.875rem;
+  color: #7f1d1d;
+  line-height: 1.55;
+  text-align: left;
+}
+
+/* 3. Main Table Section & Headers */
+.tab-pane-section {
+  animation: fadeIn 0.25s ease-out;
+}
+
+.table-section-header {
+  margin-bottom: 1.25rem;
+}
+
+.table-section-title {
+  font-family: var(--font-body);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.table-section-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-align: left;
+}
+
+/* Yellow Warning Callout on Waiting List Tab */
+.waiting-warning-callout {
+  background-color: #fefce8;
+  border-left: 4px solid #eab308;
+  border-radius: 4px;
+  padding: 0.95rem 1.25rem;
+  font-size: 0.925rem;
+  color: #854d0e;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* Search & Toolbar */
+.ranklist-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.ranklist-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 260px;
+  max-width: 480px;
+}
+
+.ranklist-search-wrapper svg {
+  position: absolute;
+  left: 0.85rem;
+  pointer-events: none;
+}
+
+.ranklist-search-input {
+  width: 100%;
+  padding: 0.65rem 2.2rem 0.65rem 2.5rem;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #0f172a;
+  transition: all 0.2s;
+}
+
+.ranklist-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.ranklist-search-clear {
+  position: absolute;
+  right: 0.65rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.ranklist-search-clear:hover {
+  color: #334155;
+}
+
+.ranklist-filter-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.filter-chip.active {
+  background-color: #133b70;
+  color: #ffffff;
+  border-color: #133b70;
+}
+
+/* Card Containing the Table */
+.ranklist-table-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+}
+
+.table-card-topbar {
+  padding: 0.85rem 1.5rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  color: #475569;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.table-count-badge {
+  font-size: 0.8rem;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Table */
+.ranklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+  text-align: left;
+}
+
+.ranklist-table thead tr {
+  background-color: #102a4e;
+  color: #ffffff;
+}
+
+.ranklist-table th {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border: none;
+}
+
+.ranklist-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.ranklist-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ranklist-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.col-sl-no {
+  color: #64748b;
+  font-family: var(--font-headings);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.col-team-name {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.col-team-id {
+  font-family: var(--font-headings);
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+.col-institute {
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+/* Quota Badges */
+.quota-pill {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.quota-pill.quota-general {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.quota-pill.quota-female {
+  background-color: #fdf2f8;
+  color: #db2777;
+  border: 1px solid #fbcfe8;
+}
+
+.table-empty-message {
+  text-align: center;
+  padding: 3rem 1.5rem !important;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .ranklist-hero-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .ranklist-hero-title {
+    font-size: 1.6rem;
+  }
+  .next-steps-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .published-announcement-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .published-title {
+    font-size: 1.5rem;
+  }
+  .ranklist-table th,
+  .ranklist-table td {
+    padding: 0.75rem 0.85rem;
+  }
+}
