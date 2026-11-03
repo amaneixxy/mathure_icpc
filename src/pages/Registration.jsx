@@ -11,7 +11,7 @@ export default function Registration() {
 
   return (
     <div>
-      {/* 1. Page Header */}
+      {/* 1.Page Header */}
       <section className="page-header">
         <div className="container">
           <h1 style={{ color: 'var(--accent)' }}>Registration &amp; Fee Payment</h1>
@@ -186,7 +186,7 @@ export default function Registration() {
                   <p className="text-muted" style={{ marginBottom: '1.5rem', maxWidth: '650px', marginInline: 'auto', lineHeight: 1.6 }}>
                     New team registrations are now closed. Already registered teams must complete their registration fee payment and submit payment proof before the deadline: <strong>27 September 2026 (05:00 PM IST)</strong>.
                   </p>
-                  
+
                   {/* Late Submission Approval Notice */}
                   <div style={{
                     backgroundColor: '#eff6ff',
