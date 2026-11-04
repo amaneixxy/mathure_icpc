@@ -41,7 +41,6 @@ export default function PublishedAnnouncement() {
           <ul className="step-box-list">
             <li>Registration fee payment link</li>
             <li>Onsite registration form link</li>
-            <li>Details of the allotted onsite centre</li>
           </ul>
           <p className="step-box-note">
             Teams are requested to check their registered email addresses regularly (including the Spam/Junk folder) and complete all the required formalities within the prescribed deadline.

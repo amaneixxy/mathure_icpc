@@ -55,7 +55,7 @@ export default function Ranklist() {
     <div className="ranklist-page-wrapper">
       {/* Top Container */}
       <div className="container" style={{ maxWidth: '1100px', paddingTop: '2.5rem', paddingBottom: '4rem' }}>
-        
+
         {/* ========================================================
             1. Dark Hero Banner (Matches Image 2 Top Section)
            ======================================================== */}
@@ -112,7 +112,7 @@ export default function Ranklist() {
               <div className="next-step-date-title">By 5 November 2026</div>
               <div className="next-step-time">10:00 PM IST</div>
               <p className="next-step-text">
-                Selected teams will receive an email containing the <strong>fee-payment link</strong>, <strong>onsite registration form link</strong>, and <strong>details of their allotted centre</strong>.
+                Selected teams will receive an email containing the <strong>fee-payment link</strong> and <strong>onsite registration form link</strong>.
               </p>
             </div>
 
